@@ -10,10 +10,10 @@ const CustomFlex = styled.header`
   margin-top: -65px;
   color: white;
 
-  background: linear-gradient(320deg, #341952, #194e45, #1c277d);
+  background: linear-gradient(300deg, #341952, #194e45, #1c277d);
   background-size: 600% 600%;
 
-  animation: AnimationName 14s ease infinite both;
+  animation: AnimationName 20s ease infinite both;
 
   @keyframes AnimationName {
     0% {
@@ -33,19 +33,19 @@ export default function Header() {
     <CustomFlex>
       <Container maxW="container.xl">
         <Flex align="flex-start" flexDir="column" gap={6}>
+          <Text variant="accent">Hi ! My name is</Text>
           <Heading fontSize={['4xl', '7xl']} color="inherit">
             Tristan DIDA.
           </Heading>
           <Heading fontSize={['4xl', '7xl']} variant="muted" mb={[0, 8]}>
-            Développeur web full-stack.
+            I&apos;m a full stack web developer and software enginner.
           </Heading>
           <Text fontSize="lg">
-            Bienvenue sur mon site, celui-ci est actuellement en cours de mise à
-            jour !
+            Welcome to my portfolio ! It is currently under construction.
           </Text>
-          <Link href="#a-propos">
+          <Link href="#about">
             <Button colorScheme="teal" rightIcon={<FaArrowDown />}>
-              En savoir plus
+              Get started!
             </Button>
           </Link>
         </Flex>

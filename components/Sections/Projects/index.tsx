@@ -5,8 +5,8 @@ import Section from '../../Section';
 
 export default function Projects() {
   return (
-    <Section id="projets" title="Projets" dark>
-      <Text textAlign="center">Bientôt disponible !</Text>
+    <Section id="projects" title="Projects" dark>
+      <Text textAlign="center">Coming soon !</Text>
       {/* <SimpleGrid spacing={16} columns={[1, null, 2, 3]}>
         <Project
           project={{

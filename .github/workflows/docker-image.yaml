@@ -20,7 +20,19 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
+          target: runner
           push: true
           tags: |
             ghcr.io/sharkezz/tristandida-fr:latest
             ghcr.io/sharkezz/tristandida-fr:${{ github.sha }}
+      - name: Install helm
+        run: |
+          curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+          chmod 700 get_helm.sh
+          ./get_helm.sh
+      - name: Set Kubeconfig
+        run: |
+          mkdir ~/.kube
+          echo "${{ secrets.KUBECONFIG }}" | base64 -d > ~/.kube/config
+      - name: Deploy
+        run: helm upgrade --install --wait --namespace tristandida-website tristandida-website helm --set image.tag=${{ github.sha }}

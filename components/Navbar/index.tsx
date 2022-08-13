@@ -36,6 +36,7 @@ export default function Navbar() {
       color="white"
       backdropFilter={isScrolled ? 'blur(8px)' : 'none'}
       bg={isScrolled ? 'blackAlpha.600' : 'transparent'}
+      shadow={isScrolled ? 'md' : 'none'}
       transition="background 0.2s"
       zIndex="sticky"
     >
@@ -43,11 +44,11 @@ export default function Navbar() {
         <Text fontSize={22}>T.D</Text>
       </Link>
       <HStack spacing={8} display={['none', null, 'block']}>
-        <Link href="/">Accueil</Link>
-        <Link href="#a-propos">A propos</Link>
-        <Link href="#projets">Projets</Link>
-        <Link href="#competences">Compétences</Link>
-        <Link href="https://github.com/SharkEzz">
+        <Link href="/">Home</Link>
+        <Link href="#about">About</Link>
+        <Link href="#projects">Projects</Link>
+        <Link href="#skills">Skills</Link>
+        <Link href="https://github.com/SharkEzz" outside>
           <Icon
             aria-label="Github"
             as={FaGithub}
