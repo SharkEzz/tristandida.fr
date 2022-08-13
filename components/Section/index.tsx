@@ -14,12 +14,12 @@ export default function Section({
 }: {
   id?: string;
   dark?: boolean;
-  title: string;
+  title?: string;
   children: React.ReactNode;
 }) {
   return (
     <MotionBox
-      py={20}
+      py={28}
       id={id}
       bg={dark ? 'teal.800' : 'transparent'}
       initial={{ opacity: 0, scale: 0.9 }}
@@ -27,14 +27,16 @@ export default function Section({
       transition="0.2s"
       viewport={{ amount: 0.5, once: true }}
     >
-      <Heading
-        as="h2"
-        textAlign="center"
-        mb={10}
-        color={dark ? 'white' : 'inherit'}
-      >
-        {title}
-      </Heading>
+      {title && (
+        <Heading
+          as="h2"
+          textAlign="center"
+          mb={10}
+          color={dark ? 'white' : 'inherit'}
+        >
+          {title}
+        </Heading>
+      )}
       <Container maxW="container.xl" color={dark ? 'white' : 'inherit'}>
         {children}
       </Container>
@@ -45,4 +47,5 @@ export default function Section({
 Section.defaultProps = {
   dark: false,
   id: undefined,
+  title: undefined,
 };

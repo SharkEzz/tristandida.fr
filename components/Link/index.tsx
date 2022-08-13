@@ -5,6 +5,7 @@ export default function Link({
   href,
   outside,
   children,
+  ...props
 }: {
   href: string;
   outside?: boolean;
@@ -15,6 +16,8 @@ export default function Link({
       <ChakraLink
         _hover={{ textDecoration: 'none' }}
         target={outside ? '_blank' : '_self'}
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...props}
       >
         {children}
       </ChakraLink>

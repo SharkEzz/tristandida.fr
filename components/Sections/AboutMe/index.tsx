@@ -1,11 +1,11 @@
 import { Box, Grid, GridItem, Image } from '@chakra-ui/react';
-import type AboutMeType from '../../../directus/AboutMe';
+import type AboutMeType from '../../../models/AboutMe';
 import getDirectusImagePath from '../../../utils/getDirectusImagePath';
 import Section from '../../Section';
 
 export default function AboutMe({ aboutMe }: { aboutMe: AboutMeType }) {
   return (
-    <Section id="about" title="Who am I?">
+    <Section id="whoami" title="Who am I?">
       <Grid templateColumns={['1fr', null, '2fr 1fr']} gap="4rem">
         <GridItem alignSelf="center">
           <Box

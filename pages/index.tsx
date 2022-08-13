@@ -1,12 +1,13 @@
 import { Box } from '@chakra-ui/react';
 import { Directus } from '@directus/sdk';
 import Head from 'next/head';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import AboutMe from '../components/Sections/AboutMe';
 import Projects from '../components/Sections/Projects';
 import Skills from '../components/Sections/Skills';
-import type DirectusCollections from '../directus';
+import type DirectusCollections from '../models';
 
 export default function Home({
   header,
@@ -30,6 +31,7 @@ export default function Home({
         <Projects projects={projects} />
         <Skills />
       </Box>
+      <Footer />
     </>
   );
 }
