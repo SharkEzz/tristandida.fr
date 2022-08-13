@@ -1,6 +1,7 @@
 import { Button, Container, Flex, Heading, Text } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 import { FaArrowDown } from 'react-icons/fa';
+import type HeaderType from '../../directus/Header';
 import Link from '../Link';
 
 const CustomFlex = styled.header`
@@ -28,21 +29,18 @@ const CustomFlex = styled.header`
   }
 `;
 
-export default function Header() {
+export default function Header({ header }: { header: HeaderType }) {
   return (
     <CustomFlex>
       <Container maxW="container.xl">
         <Flex align="flex-start" flexDir="column" gap={6}>
-          <Text variant="accent">Hi ! My name is</Text>
+          <Text variant="accent">{header.prefix}</Text>
           <Heading fontSize={['4xl', '7xl']} color="inherit">
-            Tristan DIDA.
+            {header.main_title}
           </Heading>
           <Heading fontSize={['4xl', '7xl']} variant="muted" mb={[0, 8]}>
-            I&apos;m a full stack web developer and software enginner.
+            {header.subtitle}
           </Heading>
-          <Text fontSize="lg">
-            Welcome to my portfolio ! It is currently under construction.
-          </Text>
           <Link href="#about">
             <Button colorScheme="teal" rightIcon={<FaArrowDown />}>
               Get started!
