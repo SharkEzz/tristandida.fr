@@ -1,4 +1,4 @@
-import { Button, Container, Flex, Icon, Text } from '@chakra-ui/react';
+import { Button, Flex, Icon, Text } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { FaGithub, FaToggleOn } from 'react-icons/fa';
 import Link from '../Link';

@@ -7,7 +7,7 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react';
-import { FaArrowsAlt, FaLink, FaOutdent } from 'react-icons/fa';
+import { FaLink } from 'react-icons/fa';
 import type ProjectType from '../../models/Project';
 import getDirectusImagePath from '../../utils/getDirectusImagePath';
 import Link from '../Link';

@@ -12,7 +12,7 @@ WORKDIR /build
 COPY --from=deps /build/node_modules node_modules
 COPY . .
 
-RUN yarn build
+RUN yarn prod
 
 FROM node:16-alpine AS runner
 
