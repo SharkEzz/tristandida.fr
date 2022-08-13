@@ -1,16 +1,20 @@
-import { SimpleGrid } from '@chakra-ui/react';
+import { VStack } from '@chakra-ui/react';
 import type ProjectType from '../../../models/Project';
-import Section from '../../Section';
 import Project from '../../Project';
+import Section from '../../Section';
 
 export default function Projects({ projects }: { projects: ProjectType[] }) {
   return (
-    <Section id="projects" title="Projects" dark>
-      <SimpleGrid spacing={16} columns={[1, null, 2, 3]}>
-        {projects.map((project) => (
-          <Project key={`project_${project.id}`} project={project} />
+    <Section title="Projects" id="projects" dark>
+      <VStack spacing={20} align="flex-start">
+        {projects.map((project, index) => (
+          <Project
+            key={`experience_${project.id}`}
+            project={project}
+            reversed={index % 2 === 0}
+          />
         ))}
-      </SimpleGrid>
+      </VStack>
     </Section>
   );
 }

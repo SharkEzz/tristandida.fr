@@ -7,6 +7,7 @@ type Experience = {
   title: string;
   description: string;
   image: Image;
+  tags: string[];
 };
 
 export default Experience;

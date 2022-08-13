@@ -1,7 +1,7 @@
-import { VStack } from '@chakra-ui/react';
+import { SimpleGrid } from '@chakra-ui/react';
+import Section from '../../Section';
 import type ExperienceType from '../../../models/Experience';
 import Experience from '../../Experience';
-import Section from '../../Section';
 
 export default function Experiences({
   experiences,
@@ -9,16 +9,15 @@ export default function Experiences({
   experiences: ExperienceType[];
 }) {
   return (
-    <Section title="Experience" id="experiences" dark>
-      <VStack spacing={20} align="flex-start">
-        {experiences.map((experience, index) => (
+    <Section id="experiences" title="Experiences" dark>
+      <SimpleGrid spacing={16} columns={[1, null, 2, 3]}>
+        {experiences.map((experience) => (
           <Experience
             key={`experience_${experience.id}`}
             experience={experience}
-            reversed={index % 2 === 0}
           />
         ))}
-      </VStack>
+      </SimpleGrid>
     </Section>
   );
 }
