@@ -18,6 +18,8 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Test
+        run: echo ${{ secrets.DIRECTUS_URL }}
       - name: Build and push Docker images
         uses: docker/build-push-action@v3
         with:
