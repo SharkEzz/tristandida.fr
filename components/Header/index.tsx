@@ -13,9 +13,26 @@ const CustomFlex = styled.header`
   background: linear-gradient(300deg, #341952, #194e45, #1c277d);
   background-size: 600% 600%;
 
-  animation: AnimationName 20s ease infinite both;
+  animation: backgroundGradient 20s ease infinite both;
 
-  @keyframes AnimationName {
+  .content {
+    animation: pageLoad 1.2s;
+    animation-delay: 0.3s;
+    animation-fill-mode: both;
+  }
+
+  @keyframes pageLoad {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes backgroundGradient {
     0% {
       background-position: 0% 51%;
     }
@@ -32,7 +49,7 @@ export default function Header({ header }: { header: HeaderType }) {
   return (
     <CustomFlex>
       <Container maxW="container.xl">
-        <Flex align="flex-start" flexDir="column" gap={6}>
+        <Flex align="flex-start" flexDir="column" gap={6} className="content">
           <Text variant="accent" fontSize="xl">
             {header.prefix}
           </Text>

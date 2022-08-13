@@ -1,13 +1,13 @@
 import { Box } from '@chakra-ui/react';
-import { Directus } from '@directus/sdk';
 import Head from 'next/head';
 import Header from '../components/Header';
-import Navbar from '../components/Navbar';
+import PageLayout from '../components/PageLayout';
 import AboutMe from '../components/Sections/AboutMe';
 import Experiences from '../components/Sections/Experiences';
 import Projects from '../components/Sections/Projects';
 import Skills from '../components/Sections/Skills';
 import type DirectusCollections from '../models';
+import getDirectus from '../utils/getDirectus';
 
 export default function Home({
   header,
@@ -21,12 +21,11 @@ export default function Home({
   experiences: DirectusCollections['experience'][];
 }) {
   return (
-    <>
+    <PageLayout>
       <Head>
         <title>Tristan DIDA | Portfolio</title>
         <meta name="description" content="Tristan DIDA's portfolio" />
       </Head>
-      <Navbar />
       <Header header={header} />
       <Box as="main">
         <AboutMe aboutMe={aboutMe} />
@@ -34,14 +33,12 @@ export default function Home({
         <Skills />
         <Experiences experiences={experiences} />
       </Box>
-    </>
+    </PageLayout>
   );
 }
 
 export async function getStaticProps() {
-  const directus = new Directus<DirectusCollections>(
-    process.env.NEXT_PUBLIC_DIRECTUS_URL ?? '',
-  );
+  const directus = getDirectus();
 
   const header = await directus.singleton('header').read();
   const aboutMe = await directus.singleton('about_me').read({

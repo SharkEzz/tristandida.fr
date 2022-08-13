@@ -8,6 +8,9 @@ const Text: ComponentStyleConfig = {
     accent: {
       color: 'teal.200',
     },
+    muted: {
+      color: 'blackAlpha.700',
+    },
   },
 };
 

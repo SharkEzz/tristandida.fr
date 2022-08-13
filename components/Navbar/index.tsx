@@ -67,10 +67,11 @@ export default function Navbar() {
         display={[isVisible ? 'flex' : 'none', null, 'flex']}
       >
         <Link href="/">Home</Link>
-        <Link href="#whoami">Who am I</Link>
-        <Link href="#projects">Projects</Link>
-        <Link href="#skills">Skills</Link>
-        <Link href="#experiences">Experiences</Link>
+        <Link href="/blog">Blog</Link>
+        <Link href="/#whoami">Who am I</Link>
+        <Link href="/#projects">Projects</Link>
+        <Link href="/#skills">Skills</Link>
+        <Link href="/#experiences">Experiences</Link>
         <Link href="https://github.com/SharkEzz" outside>
           <Icon
             aria-label="Github"
