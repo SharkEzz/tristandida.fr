@@ -22,8 +22,7 @@ WORKDIR /app
 COPY --from=builder /build/.next .next
 COPY --from=builder /build/package.json .
 COPY --from=builder /build/yarn.lock .
-
-RUN yarn
+COPY --from=deps /build/node_modules node_modules
 
 EXPOSE 3000
 CMD [ "yarn", "start" ]
