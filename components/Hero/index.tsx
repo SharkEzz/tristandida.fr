@@ -11,17 +11,19 @@ export default function Hero({
     <Flex
       as="header"
       height="500px"
-      bg="blue.900"
-      align="center"
+      bgColor="blue.900"
       justify="center"
       flexDir="column"
       gap={8}
+      p={8}
       color="white"
     >
-      <Heading fontSize="5xl" as="h1" color="white">
+      <Heading fontSize="5xl" as="h1" color="white" textAlign="center">
         {title}
       </Heading>
-      <Text fontSize="xl">{subtitle}</Text>
+      <Text fontSize="xl" textAlign="center">
+        {subtitle}
+      </Text>
     </Flex>
   );
 }

@@ -18,12 +18,16 @@ export default function Blog({
       />
       <Box as="main" py={8}>
         <Container maxW="container.md">
-          <Text textAlign="center">Coming soon...</Text>
-          {/* <VStack align="flex-start" spacing={16}>
+          <VStack align="flex-start" spacing={16}>
             {articles.map((article) => (
               <BlogItem key={`article_${article.id}`} article={article} />
             ))}
-          </VStack> */}
+            {articles.length === 0 && (
+              <Text alignSelf="center">
+                No articles found for now, check back later!
+              </Text>
+            )}
+          </VStack>
         </Container>
       </Box>
     </PageLayout>
@@ -35,6 +39,11 @@ export async function getStaticProps() {
 
   const articles = await directus.items('article').readByQuery({
     fields: ['*', 'image.title', 'image.id', 'image.description'],
+    filter: {
+      status: {
+        _eq: 'published',
+      },
+    },
   });
 
   return {

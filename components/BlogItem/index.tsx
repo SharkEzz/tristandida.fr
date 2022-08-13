@@ -19,7 +19,6 @@ export default function BlogItem({ article }: { article: Article }) {
           <Heading as="h2">{article.title}</Heading>
         </Link>
         <Text textTransform="uppercase" variant="muted">
-          Publié le :{' '}
           {new Date(article.date_created).toLocaleDateString('fr-FR', {
             day: 'numeric',
             month: 'long',
@@ -27,8 +26,9 @@ export default function BlogItem({ article }: { article: Article }) {
           })}
         </Text>
         <Text>
-          {article.description.slice(0, 300)}
-          ...
+          {article.description.length > 300
+            ? `${article.description.slice(0, 300)}...`
+            : article.description}
         </Text>
       </VStack>
     </Grid>

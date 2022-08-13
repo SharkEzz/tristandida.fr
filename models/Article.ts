@@ -8,6 +8,7 @@ type Article = {
   content: string;
   date_updated: string;
   date_created: string;
+  status: string;
 };
 
 export default Article;

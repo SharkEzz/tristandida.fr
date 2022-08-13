@@ -1,4 +1,4 @@
-import { Button, Flex, Icon, Text } from '@chakra-ui/react';
+import { Button, Flex, Icon, Text, useMediaQuery } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { FaGithub, FaToggleOn } from 'react-icons/fa';
 import Link from '../Link';
@@ -6,6 +6,8 @@ import Link from '../Link';
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+
+  const [isMobile] = useMediaQuery('(max-width: 768px)');
 
   const onScroll = () => {
     if (window.scrollY > 0) {
@@ -22,6 +24,12 @@ export default function Navbar() {
       window.removeEventListener('scroll', onScroll);
     };
   }, [isScrolled]);
+
+  useEffect(() => {
+    if (isMobile) {
+      setIsVisible(false);
+    }
+  }, [isMobile]);
 
   return (
     <Flex
@@ -52,6 +60,7 @@ export default function Navbar() {
           <Text fontSize={22}>T.D</Text>
         </Link>
         <Button
+          aria-label="Toggle mobile navbar"
           display={['block', null, 'none']}
           variant="unstyled"
           onClick={() => setIsVisible(!isVisible)}
