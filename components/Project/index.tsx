@@ -89,6 +89,7 @@ export default function Project({
           alt={project.image.description}
           rounded="xl"
           objectFit="cover"
+          loading="lazy"
         />
       </GridItem>
     </Box>

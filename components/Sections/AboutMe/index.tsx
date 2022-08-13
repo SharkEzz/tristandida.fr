@@ -24,6 +24,7 @@ export default function AboutMe({ aboutMe }: { aboutMe: AboutMeType }) {
             boxSize={['250px', null, null, null, '380px']}
             boxShadow="dark-lg"
             objectFit="cover"
+            loading="lazy"
           />
         </GridItem>
       </Grid>

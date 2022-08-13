@@ -12,6 +12,7 @@ export default function BlogItem({ article }: { article: Article }) {
           title={article.image.title}
           alt={article.image.description}
           width="100%"
+          loading="lazy"
         />
       </Link>
       <VStack align="flex-start" spacing={4}>

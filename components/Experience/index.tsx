@@ -26,6 +26,7 @@ export default function Experience({
             title={experience.image.title}
             alt={experience.image.description}
             maxH="100%"
+            loading="lazy"
           />
         </Flex>
         <Text>{experience.description}</Text>
