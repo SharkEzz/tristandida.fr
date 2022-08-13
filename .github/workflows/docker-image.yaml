@@ -7,8 +7,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      NEXT_PUBLIC_DIRECTUS_URL: ${{ secrets.DIRECTUS_URL }}
 
     steps:
       - uses: actions/checkout@v3
@@ -18,8 +16,6 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Test
-        run: echo ${{ secrets.DIRECTUS_URL }}
       - name: Build and push Docker images
         uses: docker/build-push-action@v3
         with:
@@ -44,4 +40,3 @@ jobs:
           --wait
           --namespace tristandida-website tristandida-website helm
           --set image.tag=${{ github.sha }}
-          --set directusUrl=$NEXT_PUBLIC_DIRECTUS_URL

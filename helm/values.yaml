@@ -4,8 +4,6 @@
 
 replicaCount: 1
 
-directusUrl: ""
-
 image:
   repository: ghcr.io/sharkezz/tristandida-fr
   pullPolicy: Always

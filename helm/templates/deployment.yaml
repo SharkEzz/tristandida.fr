@@ -33,12 +33,6 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          env:
-            - name: NEXT_PUBLIC_DIRECTUS_URL
-              valueFrom:
-                configMapKeyRef:
-                  name: {{ include "website.fullname" . }}
-                  key: directus-url
           ports:
             - name: http
               containerPort: 3000
