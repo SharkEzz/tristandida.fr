@@ -17,7 +17,9 @@ export default function AboutMe({ aboutMe }: { aboutMe: AboutMeType }) {
         </GridItem>
         <GridItem justifySelf="center">
           <Image
-            src={getDirectusImagePath(aboutMe.image, 'medium')}
+            src={getDirectusImagePath(aboutMe.image.id, 'medium')}
+            title={aboutMe.image.title}
+            alt={aboutMe.image.description}
             borderRadius="full"
             boxSize={['250px', null, null, null, '380px']}
             boxShadow="dark-lg"

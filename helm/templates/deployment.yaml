@@ -33,6 +33,12 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: REVALIDATE_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "website.fullname" . }}
+                  key: revalidate-token
           ports:
             - name: http
               containerPort: 3000

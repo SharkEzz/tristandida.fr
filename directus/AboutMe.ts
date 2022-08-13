@@ -1,7 +1,10 @@
 type AboutMe = {
-  id: number;
   content: string;
-  image: string;
+  image: {
+    id: string;
+    title: string;
+    description: string;
+  };
 };
 
 export default AboutMe;

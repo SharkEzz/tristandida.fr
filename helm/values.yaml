@@ -4,6 +4,8 @@
 
 replicaCount: 1
 
+revalidateToken: ""
+
 image:
   repository: ghcr.io/sharkezz/tristandida-fr
   pullPolicy: Always

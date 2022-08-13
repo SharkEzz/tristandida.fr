@@ -19,6 +19,7 @@ export default function Home({
     <>
       <Head>
         <title>Tristan DIDA | Portfolio</title>
+        <meta name="description" content="Tristan DIDA's portfolio" />
       </Head>
       <Navbar />
       <Header header={header} />
@@ -37,7 +38,9 @@ export async function getStaticProps() {
   );
 
   const header = await directus.singleton('header').read();
-  const aboutMe = await directus.singleton('about_me').read();
+  const aboutMe = await directus.singleton('about_me').read({
+    fields: ['content', 'image.title', 'image.id', 'image.description'],
+  });
 
   return {
     props: {
