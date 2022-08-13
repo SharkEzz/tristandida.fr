@@ -1,10 +1,8 @@
+import type Image from './image';
+
 type AboutMe = {
   content: string;
-  image: {
-    id: string;
-    title: string;
-    description: string;
-  };
+  image: Image;
 };
 
 export default AboutMe;

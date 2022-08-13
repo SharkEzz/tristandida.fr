@@ -11,9 +11,11 @@ import type DirectusCollections from '../directus';
 export default function Home({
   header,
   aboutMe,
+  projects,
 }: {
   header: DirectusCollections['header'];
   aboutMe: DirectusCollections['about_me'];
+  projects: DirectusCollections['projects'][];
 }) {
   return (
     <>
@@ -25,7 +27,7 @@ export default function Home({
       <Header header={header} />
       <Box as="main">
         <AboutMe aboutMe={aboutMe} />
-        <Projects />
+        <Projects projects={projects} />
         <Skills />
       </Box>
     </>
@@ -41,11 +43,21 @@ export async function getStaticProps() {
   const aboutMe = await directus.singleton('about_me').read({
     fields: ['content', 'image.title', 'image.id', 'image.description'],
   });
+  const projects = await directus.items('projects').readByQuery({
+    fields: [
+      '*',
+      'category.name',
+      'image.title',
+      'image.id',
+      'image.description',
+    ],
+  });
 
   return {
     props: {
       aboutMe,
       header,
+      projects: projects.data,
     },
     revalidate: 86400, // each day
   };

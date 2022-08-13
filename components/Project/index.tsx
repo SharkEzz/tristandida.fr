@@ -1,20 +1,13 @@
-import { Box, Heading, HStack, Image, Text, VStack } from '@chakra-ui/react';
+import { Box, Flex, Heading, Image, Text, VStack } from '@chakra-ui/react';
+import type ProjectType from '../../directus/Project';
+import getDirectusImagePath from '../../utils/getDirectusImagePath';
 import Link from '../Link';
-
-type ProjectType = {
-  year: number;
-  title: string;
-  description: string;
-  technologies: string[];
-  link: string;
-  image: string;
-  category: string;
-};
 
 export default function Project({ project }: { project: ProjectType }) {
   return (
-    <Link href={project.link}>
+    <Link href={project.link ?? '#'} outside={!!project.link}>
       <Box
+        h={620}
         bg="gray.700"
         p={6}
         shadow="lg"
@@ -23,27 +16,32 @@ export default function Project({ project }: { project: ProjectType }) {
         }}
         transition="transform 0.2s"
       >
-        <VStack align="flex-start" spacing={6}>
+        <VStack align="flex-start" spacing={6} h="full" justify="space-between">
           <Text variant="accent">
-            {project.year} - {project.category}
+            {`${project.year} - ${project.category.name}`}
           </Text>
           <Heading as="h3" size="lg" fontWeight="bold" color="inherit">
-            {project.title}
+            {project.name}
           </Heading>
-          <Image src="https://picsum.photos/400/300" width="100%" />
+          <Image
+            src={getDirectusImagePath(project.image.id, 'project-small')}
+            height={250}
+            objectFit="cover"
+          />
           <Text>{project.description}</Text>
-          <HStack>
-            {project.technologies.map((tech, index) => (
+          <Flex flexWrap="wrap" gap={2}>
+            {project.tags.map((tech, index) => (
               <Text
                 as="span"
                 variant="accent"
                 // eslint-disable-next-line react/no-array-index-key
-                key={`tech_${project.title.replaceAll(' ', '_')}_${index}`}
+                key={`tech_${project.name.replaceAll(' ', '_')}_${index}`}
               >
                 {tech}
+                {index !== project.tags.length - 1 && ','}
               </Text>
             ))}
-          </HStack>
+          </Flex>
         </VStack>
       </Box>
     </Link>
