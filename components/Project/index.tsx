@@ -15,6 +15,7 @@ export default function Project({ project }: { project: ProjectType }) {
           transform: 'translateY(-5px)',
         }}
         transition="transform 0.2s, box-shadow 0.2s"
+        rounded="md"
       >
         <VStack align="flex-start" spacing={6} h="full">
           <Text variant="accent">

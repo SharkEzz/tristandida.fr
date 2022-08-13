@@ -21,7 +21,7 @@ export default function Section({
     <MotionBox
       py={28}
       id={id}
-      bg={dark ? 'teal.800' : 'transparent'}
+      bg={dark ? 'blue.900' : 'transparent'}
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition="0.2s"

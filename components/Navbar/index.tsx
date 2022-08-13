@@ -1,4 +1,4 @@
-import { Button, Flex, Icon, Text } from '@chakra-ui/react';
+import { Button, Container, Flex, Icon, Text } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { FaGithub, FaToggleOn } from 'react-icons/fa';
 import Link from '../Link';
@@ -70,6 +70,7 @@ export default function Navbar() {
         <Link href="#whoami">Who am I</Link>
         <Link href="#projects">Projects</Link>
         <Link href="#skills">Skills</Link>
+        <Link href="#experiences">Experiences</Link>
         <Link href="https://github.com/SharkEzz" outside>
           <Icon
             aria-label="Github"

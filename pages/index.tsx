@@ -1,10 +1,10 @@
 import { Box } from '@chakra-ui/react';
 import { Directus } from '@directus/sdk';
 import Head from 'next/head';
-import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import AboutMe from '../components/Sections/AboutMe';
+import Experiences from '../components/Sections/Experiences';
 import Projects from '../components/Sections/Projects';
 import Skills from '../components/Sections/Skills';
 import type DirectusCollections from '../models';
@@ -13,10 +13,12 @@ export default function Home({
   header,
   aboutMe,
   projects,
+  experiences,
 }: {
   header: DirectusCollections['header'];
   aboutMe: DirectusCollections['about_me'];
   projects: DirectusCollections['projects'][];
+  experiences: DirectusCollections['experience'][];
 }) {
   return (
     <>
@@ -30,8 +32,8 @@ export default function Home({
         <AboutMe aboutMe={aboutMe} />
         <Projects projects={projects} />
         <Skills />
+        <Experiences experiences={experiences} />
       </Box>
-      <Footer />
     </>
   );
 }
@@ -54,10 +56,14 @@ export async function getStaticProps() {
       'image.description',
     ],
   });
+  const experiences = await directus.items('experience').readByQuery({
+    fields: ['*', 'image.title', 'image.id', 'image.description'],
+  });
 
   return {
     props: {
       aboutMe,
+      experiences: experiences.data,
       header,
       projects: projects.data,
     },
