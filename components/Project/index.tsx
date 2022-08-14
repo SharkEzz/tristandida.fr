@@ -84,11 +84,12 @@ export default function Project({
         zIndex={0}
       >
         <Image
-          src={getDirectusImagePath(project.image.id)}
+          src={getDirectusImagePath(project.image.id, 'project-small')}
           title={project.image.title}
           alt={project.image.description}
           rounded="xl"
           objectFit="cover"
+          width="100%"
           loading="lazy"
           shadow="md"
         />

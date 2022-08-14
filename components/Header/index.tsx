@@ -49,7 +49,13 @@ export default function Header({ header }: { header: HeaderType }) {
   return (
     <CustomFlex>
       <Container maxW="container.xl">
-        <Flex align="flex-start" flexDir="column" gap={6} className="content">
+        <Flex
+          align="flex-start"
+          flexDir="column"
+          gap={6}
+          p={6}
+          className="content"
+        >
           <Text variant="accent" fontSize="xl">
             {header.prefix}
           </Text>
