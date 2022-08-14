@@ -1,5 +1,6 @@
-import { VStack } from '@chakra-ui/react';
+import { Text, VStack } from '@chakra-ui/react';
 import type ProjectType from '../../../models/Project';
+import Link from '../../Link';
 import Project from '../../Project';
 import Section from '../../Section';
 
@@ -15,6 +16,11 @@ export default function Projects({ projects }: { projects: ProjectType[] }) {
           />
         ))}
       </VStack>
+      <Link href="https://github.com/SharkEzz">
+        <Text fontSize="lg" mt={16} textAlign="center">
+          Want to see more ? Take a look at my GitHub !
+        </Text>
+      </Link>
     </Section>
   );
 }

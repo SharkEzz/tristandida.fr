@@ -1,6 +1,6 @@
 import { Button, Flex, Icon, Text, useMediaQuery } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import { FaGithub, FaLinkedin, FaToggleOn } from 'react-icons/fa';
+import { FaEnvelope, FaGithub, FaLinkedin, FaToggleOn } from 'react-icons/fa';
 import Link from '../Link';
 
 export default function Navbar() {
@@ -78,7 +78,7 @@ export default function Navbar() {
         display={[isVisible ? 'flex' : 'none', null, 'flex']}
       >
         <Link href="/">Home</Link>
-        <Link href="/blog">Blog</Link>
+        {/* <Link href="/blog">Blog</Link> */}
         <Link href="/#whoami">Who am I</Link>
         <Link href="/#projects">Projects</Link>
         <Link href="/#skills">Skills</Link>
@@ -96,6 +96,15 @@ export default function Navbar() {
           <Icon
             aria-label="LinkedIn"
             as={FaLinkedin}
+            verticalAlign="middle"
+            height="24px"
+            width="24px"
+          />
+        </Link>
+        <Link href="mailto:tristan.dida@free.fr">
+          <Icon
+            aria-label="Email"
+            as={FaEnvelope}
             verticalAlign="middle"
             height="24px"
             width="24px"
