@@ -1,4 +1,5 @@
 import { Box, Container, Text, VStack } from '@chakra-ui/react';
+import Head from 'next/head';
 import BlogItem from '../../components/BlogItem';
 import Hero from '../../components/Hero';
 import PageLayout from '../../components/PageLayout';
@@ -12,6 +13,10 @@ export default function Blog({
 }) {
   return (
     <PageLayout>
+      <Head>
+        <title>Tristan DIDA | Blog</title>
+        <meta name="description" content="Tristan DIDA's blog" />
+      </Head>
       <Hero
         title="Blog"
         subtitle="Discover articles on various topics, ongoing projects, technology discoveries, and more!"

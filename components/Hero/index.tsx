@@ -18,9 +18,9 @@ export default function Hero({
       p={8}
       color="white"
       position="relative"
-      mb={16}
+      mb={24}
     >
-      <Heading fontSize="5xl" as="h1" color="white" textAlign="center" mt={16}>
+      <Heading fontSize="5xl" as="h1" color="white" textAlign="center" mt={20}>
         {title}
       </Heading>
       <Text fontSize="xl" textAlign="center">

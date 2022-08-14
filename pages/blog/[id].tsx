@@ -1,6 +1,7 @@
 import { Container } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 import { GetStaticProps } from 'next';
+import Head from 'next/head';
 import ReactMarkdown from 'react-markdown';
 import Hero from '../../components/Hero';
 import PageLayout from '../../components/PageLayout';
@@ -49,6 +50,10 @@ const ArticleWrapper = styled.article`
 export default function BlogArticle({ article }: { article: Article }) {
   return (
     <PageLayout>
+      <Head>
+        <title>Tristan DIDA | {article.title}</title>
+        <meta name="description" content={article.description} />
+      </Head>
       <Hero title={article.title} subtitle={article.description} />
       <Container maxW="container.md" py={8}>
         <ArticleWrapper>
