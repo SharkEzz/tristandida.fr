@@ -17,7 +17,7 @@ export default function Projects({ projects }: { projects: ProjectType[] }) {
         ))}
       </VStack>
       <Flex justify="center">
-        <Link href="https://github.com/SharkEzz" variant="hover">
+        <Link href="https://github.com/SharkEzz" variant="hover" outside>
           <Text fontSize="lg" mt={16}>
             Want to see more ? Take a look at my GitHub !
           </Text>

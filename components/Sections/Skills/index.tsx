@@ -15,6 +15,7 @@ import GolangIcon from '../../../assets/icons/GolangIcon';
 import HelmIcon from '../../../assets/icons/HelmIcon';
 import K8SIcon from '../../../assets/icons/K8SIcon';
 import NextJsIcon from '../../../assets/icons/NextJSIcon';
+import ProxmoxIcon from '../../../assets/icons/ProxmoxIcon';
 import SymfonyIcon from '../../../assets/icons/SymfonyIcon';
 import TypescriptIcon from '../../../assets/icons/TypescriptIcon';
 import Section from '../../Section';
@@ -90,6 +91,10 @@ export default function Skills() {
         <Box textAlign="center">
           <Icon as={NextJsIcon} height="56px" width="64px" />
           <Text mt={1}>NextJS</Text>
+        </Box>
+        <Box textAlign="center">
+          <Icon as={ProxmoxIcon} height="56px" width="64px" />
+          <Text mt={1}>Proxmox</Text>
         </Box>
       </SimpleGrid>
     </Section>
