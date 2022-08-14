@@ -11,6 +11,7 @@ type Project = {
   };
   image: Image;
   link?: string;
+  created_at: string;
 };
 
 export default Project;

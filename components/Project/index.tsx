@@ -90,6 +90,7 @@ export default function Project({
           rounded="xl"
           objectFit="cover"
           loading="lazy"
+          shadow="md"
         />
       </GridItem>
     </Box>

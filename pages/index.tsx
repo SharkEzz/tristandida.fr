@@ -52,9 +52,11 @@ export async function getStaticProps() {
       'image.id',
       'image.description',
     ],
+    sort: ['-created_at'],
   });
   const experiences = await directus.items('experience').readByQuery({
     fields: ['*', 'image.title', 'image.id', 'image.description'],
+    sort: ['-from'],
   });
 
   return {
