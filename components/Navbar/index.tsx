@@ -77,12 +77,22 @@ export default function Navbar() {
         flexDirection={['column', null, 'row']}
         display={[isVisible ? 'flex' : 'none', null, 'flex']}
       >
-        <Link href="/">Home</Link>
+        <Link href="/" variant="hover">
+          Home
+        </Link>
         {/* <Link href="/blog">Blog</Link> */}
-        <Link href="/#whoami">Who am I</Link>
-        <Link href="/#projects">Projects</Link>
-        <Link href="/#skills">Skills</Link>
-        <Link href="/#experiences">Experiences</Link>
+        <Link href="/#whoami" variant="hover">
+          Who am I
+        </Link>
+        <Link href="/#projects" variant="hover">
+          Projects
+        </Link>
+        <Link href="/#skills" variant="hover">
+          Skills
+        </Link>
+        <Link href="/#experiences" variant="hover">
+          Experiences
+        </Link>
         <Link href="https://github.com/SharkEzz" outside>
           <Icon
             aria-label="Github"

@@ -70,7 +70,7 @@ export default function Project({
             ))}
           </Flex>
           {project.link && (
-            <Link href={project.link} outside>
+            <Link href={project.link} variant="hover" outside>
               <Button variant="unstyled" rightIcon={<FaLink />}>
                 GitHub link
               </Button>

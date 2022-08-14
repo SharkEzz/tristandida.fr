@@ -1,6 +1,6 @@
 import type { ComponentStyleConfig } from '@chakra-ui/theme';
 
-const Text: ComponentStyleConfig = {
+const Heading: ComponentStyleConfig = {
   baseStyle: {
     color: '#2b3954',
   },
@@ -13,4 +13,4 @@ const Text: ComponentStyleConfig = {
   },
 };
 
-export default Text;
+export default Heading;

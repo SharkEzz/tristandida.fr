@@ -5,19 +5,19 @@ export default function Link({
   href,
   outside,
   children,
-  ...props
+  variant,
 }: {
   href: string;
   outside?: boolean;
   children: React.ReactNode;
+  variant?: string;
 }) {
   return (
     <NextLink passHref href={href}>
       <ChakraLink
-        _hover={{ textDecoration: 'none' }}
         target={outside ? '_blank' : '_self'}
         // eslint-disable-next-line react/jsx-props-no-spreading
-        {...props}
+        variant={variant}
       >
         {children}
       </ChakraLink>
@@ -27,4 +27,5 @@ export default function Link({
 
 Link.defaultProps = {
   outside: false,
+  variant: undefined,
 };

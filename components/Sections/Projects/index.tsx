@@ -1,4 +1,4 @@
-import { Text, VStack } from '@chakra-ui/react';
+import { Flex, Text, VStack } from '@chakra-ui/react';
 import type ProjectType from '../../../models/Project';
 import Link from '../../Link';
 import Project from '../../Project';
@@ -16,11 +16,13 @@ export default function Projects({ projects }: { projects: ProjectType[] }) {
           />
         ))}
       </VStack>
-      <Link href="https://github.com/SharkEzz">
-        <Text fontSize="lg" mt={16} textAlign="center">
-          Want to see more ? Take a look at my GitHub !
-        </Text>
-      </Link>
+      <Flex justify="center">
+        <Link href="https://github.com/SharkEzz" variant="hover">
+          <Text fontSize="lg" mt={16}>
+            Want to see more ? Take a look at my GitHub !
+          </Text>
+        </Link>
+      </Flex>
     </Section>
   );
 }
