@@ -59,10 +59,10 @@ export default function Header({ header }: { header: HeaderType }) {
           <Text variant="accent" fontSize="xl">
             {header.prefix}
           </Text>
-          <Heading fontSize={['4xl', '7xl']} color="inherit">
+          <Heading as="h1" fontSize={['4xl', '7xl']} color="inherit">
             {header.main_title}
           </Heading>
-          <Heading fontSize={['4xl', '7xl']} variant="muted" mb={[0, 8]}>
+          <Heading as="p" fontSize={['4xl', '7xl']} variant="muted" mb={[0, 8]}>
             {header.subtitle}
           </Heading>
           <Link href="#whoami">

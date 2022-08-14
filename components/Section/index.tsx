@@ -25,7 +25,7 @@ export default function Section({
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition="0.2s"
-      viewport={{ amount: 0.4, once: true }}
+      viewport={{ amount: 0.1, once: true }}
     >
       {title && (
         <Heading

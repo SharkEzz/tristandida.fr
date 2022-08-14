@@ -6,9 +6,6 @@ type Project = {
   name: string;
   description: string;
   tags: string[];
-  category: {
-    name: string;
-  };
   image: Image;
   link?: string;
   created_at: string;

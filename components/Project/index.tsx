@@ -3,6 +3,7 @@ import {
   Button,
   Flex,
   GridItem,
+  Heading,
   Image,
   Text,
   VStack,
@@ -43,10 +44,10 @@ export default function Project({
         backgroundBlendMode="overlay"
       >
         <VStack spacing={4} align={reversed ? 'flex-end' : 'flex-start'}>
-          <Text variant="accent">
-            {`${project.year} - ${project.category.name}`}
-          </Text>
-          <Text fontSize="xl">{project.name}</Text>
+          <Text variant="accent">{project.year}</Text>
+          <Heading as="h3" fontSize="2xl" color="inherit">
+            {project.name}
+          </Heading>
           <Box
             p={[0, null, 6]}
             rounded="lg"

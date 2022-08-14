@@ -45,13 +45,7 @@ export async function getStaticProps() {
     fields: ['content', 'image.title', 'image.id', 'image.description'],
   });
   const projects = await directus.items('projects').readByQuery({
-    fields: [
-      '*',
-      'category.name',
-      'image.title',
-      'image.id',
-      'image.description',
-    ],
+    fields: ['*', 'image.title', 'image.id', 'image.description'],
     sort: ['-created_at'],
   });
   const experiences = await directus.items('experience').readByQuery({
