@@ -29,8 +29,8 @@ export default async function handler(
     await res.revalidate('/blog');
 
     const waitingArticles: Promise<void>[] = [];
-    articles.data?.forEach((id) => {
-      waitingArticles.push(res.revalidate(`/blog/${id}`));
+    articles.data?.forEach((article) => {
+      waitingArticles.push(res.revalidate(`/blog/${article.id}`));
     });
 
     await Promise.all(waitingArticles);

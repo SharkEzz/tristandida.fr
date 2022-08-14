@@ -51,7 +51,7 @@ export default function BlogArticle({ article }: { article: Article }) {
   return (
     <PageLayout>
       <Head>
-        <title>Tristan DIDA | {article.title}</title>
+        <title>{`Tristan DIDA | Blog - ${article.title}`}</title>
         <meta name="description" content={article.description} />
       </Head>
       <Hero title={article.title} subtitle={article.description} />
