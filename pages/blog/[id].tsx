@@ -9,10 +9,6 @@ import Article from '../../models/Article';
 import getDirectus from '../../utils/getDirectus';
 
 const ArticleWrapper = styled.article`
-  ul {
-    margin-bottom: 1rem;
-  }
-
   h1 {
     font-size: 42px;
     font-weight: 700;
@@ -43,6 +39,9 @@ const ArticleWrapper = styled.article`
   }
   p {
     font-size: 18px;
+    margin-bottom: 1rem;
+  }
+  ul {
     margin-bottom: 1rem;
   }
 `;

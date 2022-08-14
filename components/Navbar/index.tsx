@@ -54,6 +54,8 @@ export default function Navbar() {
       zIndex="sticky"
       flexWrap="wrap"
       gap={4}
+      overflow="auto"
+      maxH="full"
     >
       <Flex w={['100%', null, 'fit-content']} justifyContent="space-between">
         <Link href="/">
