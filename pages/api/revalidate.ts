@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import getDirectus from '../../utils/getDirectus';
 
 export default async function handler(
   req: NextApiRequest,
@@ -12,8 +13,28 @@ export default async function handler(
     return res.status(401).json({ message: 'invalid token' });
   }
 
+  const directus = getDirectus();
+
+  const articles = await directus.items('article').readByQuery({
+    fields: ['id'],
+    filter: {
+      status: {
+        _eq: 'published',
+      },
+    },
+  });
+
   try {
     await res.revalidate('/');
+    await res.revalidate('/blog');
+
+    const waitingArticles: Promise<void>[] = [];
+    articles.data?.forEach((id) => {
+      waitingArticles.push(res.revalidate(`/blog/${id}`));
+    });
+
+    await Promise.all(waitingArticles);
+
     return res.json({ ok: true });
   } catch (err) {
     return res.status(500).json({ message: 'Error revalidating' });
