@@ -2,7 +2,8 @@ import type Image from './image';
 
 type Experience = {
   id: number;
-  year: number;
+  from: string;
+  to?: string;
   job: string;
   title: string;
   description: string;

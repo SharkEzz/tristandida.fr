@@ -12,6 +12,7 @@ import {
 } from 'react-icons/fa';
 import APIPlatformIcon from '../../../assets/icons/APIPlatformIcon';
 import GolangIcon from '../../../assets/icons/GolangIcon';
+import HelmIcon from '../../../assets/icons/HelmIcon';
 import K8SIcon from '../../../assets/icons/K8SIcon';
 import NextJsIcon from '../../../assets/icons/NextJSIcon';
 import SymfonyIcon from '../../../assets/icons/SymfonyIcon';
@@ -61,6 +62,10 @@ export default function Skills() {
         <Box textAlign="center">
           <Icon as={K8SIcon} />
           <Text mt={1}>Kubernetes</Text>
+        </Box>
+        <Box textAlign="center">
+          <Icon as={HelmIcon} />
+          <Text mt={1}>Helm</Text>
         </Box>
         <Box textAlign="center">
           <Icon as={FaDocker} height="56px" width="64px" />

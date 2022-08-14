@@ -1,6 +1,6 @@
 import { Button, Flex, Icon, Text, useMediaQuery } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import { FaGithub, FaToggleOn } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaToggleOn } from 'react-icons/fa';
 import Link from '../Link';
 
 export default function Navbar() {
@@ -87,6 +87,15 @@ export default function Navbar() {
           <Icon
             aria-label="Github"
             as={FaGithub}
+            verticalAlign="middle"
+            height="24px"
+            width="24px"
+          />
+        </Link>
+        <Link href="https://www.linkedin.com/in/tristan-dida/" outside>
+          <Icon
+            aria-label="LinkedIn"
+            as={FaLinkedin}
             verticalAlign="middle"
             height="24px"
             width="24px"

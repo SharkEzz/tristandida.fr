@@ -1,5 +1,6 @@
 import { Box, Flex, Heading, Image, Text, VStack } from '@chakra-ui/react';
 import type ExperienceType from '../../models/Experience';
+import formatDate from '../../utils/formatDate';
 import getDirectusImagePath from '../../utils/getDirectusImagePath';
 
 export default function Experience({
@@ -16,7 +17,12 @@ export default function Experience({
       rounded="md"
     >
       <VStack align="flex-start" spacing={6} h="full">
-        <Text variant="accent">{`${experience.year} - ${experience.job}`}</Text>
+        <VStack align="flex-start">
+          <Text as="span" variant="accent">{`${formatDate(experience.from)} - ${
+            experience.to ? formatDate(experience.to) : 'now'
+          }`}</Text>
+          <Text variant="accent">{experience.job}</Text>
+        </VStack>
         <Heading as="h3" size="lg" fontWeight="bold" color="inherit">
           {experience.title}
         </Heading>
