@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker CI
 
 on:
   push:
@@ -25,7 +25,11 @@ jobs:
           tags: |
             ghcr.io/sharkezz/tristandida-fr:latest
             ghcr.io/sharkezz/tristandida-fr:${{ github.sha }}
-      - name: Install helm
+  
+  deploy:
+    runs-on: ubuntu-latest
+
+    - name: Install helm
         run: |
           curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
           chmod 700 get_helm.sh
