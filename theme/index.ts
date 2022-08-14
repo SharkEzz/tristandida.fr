@@ -20,6 +20,7 @@ const theme = extendTheme({
       'html, body': {
         background: '#f6f9fc',
         color: '#425466',
+        overflowX: 'hidden',
         scrollBehavior: 'smooth',
       },
     },

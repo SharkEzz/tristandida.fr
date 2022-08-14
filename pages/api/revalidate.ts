@@ -17,11 +17,6 @@ export default async function handler(
 
   const articles = await directus.items('article').readByQuery({
     fields: ['id'],
-    filter: {
-      status: {
-        _eq: 'published',
-      },
-    },
   });
 
   try {
