@@ -1,4 +1,13 @@
-import { Box, Flex, Heading, Image, Text, VStack } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  Heading,
+  HStack,
+  Image,
+  Text,
+  VStack,
+} from '@chakra-ui/react';
+import TimelineIcon from '../../assets/icons/TimelineIcon';
 import type ExperienceType from '../../models/Experience';
 import formatDate from '../../utils/formatDate';
 import getDirectusImagePath from '../../utils/getDirectusImagePath';
@@ -9,33 +18,41 @@ export default function Experience({
   experience: ExperienceType;
 }) {
   return (
-    <Box
-      bg="gray.700"
-      p={6}
-      shadow="lg"
-      transition="transform 0.2s, box-shadow 0.2s"
-      rounded="md"
+    <HStack
+      w="full"
+      align="flex-start"
+      position="relative"
+      _before={{
+        bg: 'teal.200',
+        content: "''",
+        height: 'calc(100% + 8px)',
+        left: 5,
+        position: 'absolute',
+        top: 10,
+        width: '2px',
+      }}
     >
-      <VStack align="flex-start" spacing={6} h="full">
-        <VStack align="flex-start">
+      <TimelineIcon position="absolute" top={2} left="5px" fill="teal.200" />
+      <Box flex={1}>
+        <VStack pl={10} align="flex-start" position="relative">
+          <Heading as="h3" size="lg" color="inherit">
+            {experience.title}
+          </Heading>
           <Text as="span" variant="accent">{`${formatDate(experience.from)} - ${
             experience.to ? formatDate(experience.to) : 'now'
           }`}</Text>
           <Text variant="accent">{experience.job}</Text>
         </VStack>
-        <Heading as="h3" size="lg" fontWeight="bold" color="inherit">
-          {experience.title}
-        </Heading>
-        <Flex height="200px" align="center" justify="center" w="full">
-          <Image
-            src={getDirectusImagePath(experience.image.id)}
-            title={experience.image.title}
-            alt={experience.image.description}
-            maxH="100%"
-            loading="lazy"
-          />
-        </Flex>
+      </Box>
+      <VStack flex={2} align="flex-start" spacing={8}>
         <Text>{experience.description}</Text>
+        <Image
+          src={getDirectusImagePath(experience.image.id)}
+          title={experience.image.title}
+          alt={experience.image.description}
+          loading="lazy"
+          h="150px"
+        />
         <Flex flexWrap="wrap" gap={2}>
           {experience.tags.map((tech, index) => (
             <Text
@@ -50,6 +67,6 @@ export default function Experience({
           ))}
         </Flex>
       </VStack>
-    </Box>
+    </HStack>
   );
 }
