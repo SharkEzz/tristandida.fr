@@ -21,10 +21,12 @@ export default function Experience({
     <HStack
       w="full"
       align="flex-start"
+      flexDir={['column', null, 'row']}
       position="relative"
       _before={{
         bg: 'teal.200',
         content: "''",
+        display: ['none', null, 'block'],
         height: 'calc(100% + 8px)',
         left: 5,
         position: 'absolute',
@@ -32,9 +34,15 @@ export default function Experience({
         width: '2px',
       }}
     >
-      <TimelineIcon position="absolute" top={2} left="5px" fill="teal.200" />
+      <TimelineIcon
+        position="absolute"
+        display={['none', null, 'block']}
+        top={2}
+        left="5px"
+        fill="teal.200"
+      />
       <Box flex={1}>
-        <VStack pl={10} align="flex-start" position="relative">
+        <VStack pl={[0, null, 10]} align="flex-start" position="relative">
           <Heading as="h3" size="lg" color="inherit">
             {experience.title}
           </Heading>
@@ -44,14 +52,14 @@ export default function Experience({
           <Text variant="accent">{experience.job}</Text>
         </VStack>
       </Box>
-      <VStack flex={2} align="flex-start" spacing={8}>
+      <VStack flex={2} align="flex-start" spacing={10}>
         <Text>{experience.description}</Text>
         <Image
-          src={getDirectusImagePath(experience.image.id)}
+          alignSelf="center"
+          src={getDirectusImagePath(experience.image.id, 'experience')}
           title={experience.image.title}
           alt={experience.image.description}
           loading="lazy"
-          h="150px"
         />
         <Flex flexWrap="wrap" gap={2}>
           {experience.tags.map((tech, index) => (
