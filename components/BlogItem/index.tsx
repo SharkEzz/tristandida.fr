@@ -1,21 +1,17 @@
-import { Grid, Heading, Image, Text, VStack } from '@chakra-ui/react';
+import { Box, Heading, Text, VStack } from '@chakra-ui/react';
 import type Article from '../../models/Article';
 import formatDate from '../../utils/formatDate';
-import getDirectusImagePath from '../../utils/getDirectusImagePath';
 import Link from '../Link';
 
 export default function BlogItem({ article }: { article: Article }) {
   return (
-    <Grid as="article" templateColumns="160px 1fr" gap={6}>
-      <Link href={`/blog/${article.id}`}>
-        <Image
-          src={getDirectusImagePath(article.image.id, 'medium')}
-          title={article.image.title}
-          alt={article.image.description}
-          width="100%"
-          loading="lazy"
-        />
-      </Link>
+    <Box
+      as="article"
+      pb={6}
+      borderBottom="1px"
+      borderBottomColor="gray.300"
+      w="full"
+    >
       <VStack align="flex-start" spacing={4}>
         <Link href={`/blog/${article.id}`}>
           <Heading as="h2">{article.title}</Heading>
@@ -29,6 +25,6 @@ export default function BlogItem({ article }: { article: Article }) {
             : article.description}
         </Text>
       </VStack>
-    </Grid>
+    </Box>
   );
 }

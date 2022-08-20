@@ -23,14 +23,15 @@ export default function Blog({
       />
       <Box as="main" py={8}>
         <Container maxW="container.md">
-          <VStack align="flex-start" spacing={16}>
-            {articles.map((article) => (
-              <BlogItem key={`article_${article.id}`} article={article} />
-            ))}
-            {articles.length === 0 && (
+          <VStack align={['center', null, 'flex-start']} spacing={6}>
+            {articles.length === 0 ? (
               <Text alignSelf="center">
                 No articles found for now, check back later!
               </Text>
+            ) : (
+              articles.map((article) => (
+                <BlogItem article={article} key={`article_${article.id}`} />
+              ))
             )}
           </VStack>
         </Container>
@@ -49,6 +50,7 @@ export async function getStaticProps() {
         _eq: 'published',
       },
     },
+    sort: ['-date_created'],
   });
 
   return {

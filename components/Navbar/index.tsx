@@ -80,7 +80,9 @@ export default function Navbar() {
         <Link href="/" variant="hover">
           Home
         </Link>
-        {/* <Link href="/blog">Blog</Link> */}
+        <Link variant="hover" href="/blog">
+          Blog
+        </Link>
         <Link href="/#whoami" variant="hover">
           Who am I
         </Link>
