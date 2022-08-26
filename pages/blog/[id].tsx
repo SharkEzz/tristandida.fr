@@ -1,59 +1,12 @@
-import { chakra, Container } from '@chakra-ui/react';
+import { Container } from '@chakra-ui/react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import ReactMarkdown from 'react-markdown';
+import ArticleWrapper from '../../components/Blog/ArticleWrapper';
 import Hero from '../../components/Hero';
 import PageLayout from '../../components/PageLayout';
 import Article from '../../models/Article';
 import getDirectus from '../../utils/getDirectus';
-
-const ArticleWrapper = chakra('article', {
-  baseStyle: {
-    a: {
-      color: 'teal.300',
-    },
-    code: {
-      bg: 'gray.200',
-      fontSize: 16,
-    },
-    h2: {
-      fontSize: '36px',
-      fontWeight: 700,
-      my: 4,
-      width: 'fit-content',
-    },
-    h3: {
-      fontSize: '30px',
-      fontWeight: 700,
-      my: 4,
-    },
-    h4: {
-      fontSize: '24px',
-      fontWeight: 700,
-      my: 4,
-    },
-    h5: {
-      fontSize: '18px',
-      my: 4,
-    },
-    h6: {
-      fontSize: '14px',
-      my: 4,
-    },
-    img: {
-      mx: 'auto',
-      my: 8,
-    },
-    p: {
-      fontSize: '18px',
-      my: 2,
-      textAlign: 'justify',
-    },
-    ul: {
-      my: 2,
-    },
-  },
-});
 
 export default function BlogArticle({ article }: { article: Article }) {
   return (
@@ -101,14 +54,19 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   const directus = getDirectus();
 
-  let article = null;
+  let article: Article | null = null;
   try {
     article = await directus.items('article').readOne(id, {
       fields: ['*', 'image.title', 'image.id', 'image.description'],
     });
+
+    if (!article) {
+      return {
+        notFound: true,
+      };
+    }
   } catch {
     // If the article doesn't exist, return a 404
-
     return {
       notFound: true,
     };

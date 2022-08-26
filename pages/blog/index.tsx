@@ -6,11 +6,7 @@ import PageLayout from '../../components/PageLayout';
 import DirectusCollections from '../../models';
 import getDirectus from '../../utils/getDirectus';
 
-export default function Blog({
-  articles,
-}: {
-  articles: DirectusCollections['article'][];
-}) {
+export default function Blog({ articles }: { articles: DirectusCollections['article'][] }) {
   return (
     <PageLayout>
       <Head>
@@ -25,9 +21,7 @@ export default function Blog({
         <Container maxW="container.md">
           <VStack align={['center', null, 'flex-start']} spacing={6}>
             {articles.length === 0 ? (
-              <Text alignSelf="center">
-                No articles found for now, check back later!
-              </Text>
+              <Text alignSelf="center">No articles found for now, check back later!</Text>
             ) : (
               articles.map((article) => (
                 <BlogItem article={article} key={`article_${article.id}`} />

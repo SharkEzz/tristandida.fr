@@ -5,13 +5,7 @@ import Link from '../Link';
 
 export default function BlogItem({ article }: { article: Article }) {
   return (
-    <Box
-      as="article"
-      pb={6}
-      borderBottom="1px"
-      borderBottomColor="gray.300"
-      w="full"
-    >
+    <Box as="article" pb={6} borderBottom="1px" borderBottomColor="gray.300" w="full">
       <VStack align="flex-start" spacing={4}>
         <Link href={`/blog/${article.id}`}>
           <Heading as="h2">{article.title}</Heading>

@@ -1,22 +1,10 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  HStack,
-  Image,
-  Text,
-  VStack,
-} from '@chakra-ui/react';
+import { Box, Flex, Heading, HStack, Image, Text, VStack } from '@chakra-ui/react';
 import TimelineIcon from '../../assets/icons/TimelineIcon';
 import type ExperienceType from '../../models/Experience';
 import formatDate from '../../utils/formatDate';
 import getDirectusImagePath from '../../utils/getDirectusImagePath';
 
-export default function Experience({
-  experience,
-}: {
-  experience: ExperienceType;
-}) {
+export default function Experience({ experience }: { experience: ExperienceType }) {
   return (
     <HStack
       w="full"

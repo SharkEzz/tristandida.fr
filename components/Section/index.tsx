@@ -2,8 +2,7 @@ import { chakra, Container, Heading } from '@chakra-ui/react';
 import { isValidMotionProp, motion } from 'framer-motion';
 
 const MotionBox = chakra(motion.section, {
-  shouldForwardProp: (prop) =>
-    isValidMotionProp(prop) || prop === 'children' || prop === 'id',
+  shouldForwardProp: (prop) => isValidMotionProp(prop) || prop === 'children' || prop === 'id',
 });
 
 export default function Section({
@@ -28,12 +27,7 @@ export default function Section({
       viewport={{ amount: 0.1, once: true }}
     >
       {title && (
-        <Heading
-          as="h2"
-          textAlign="center"
-          mb={10}
-          color={dark ? 'white' : 'inherit'}
-        >
+        <Heading as="h2" textAlign="center" mb={10} color={dark ? 'white' : 'inherit'}>
           {title}
         </Heading>
       )}

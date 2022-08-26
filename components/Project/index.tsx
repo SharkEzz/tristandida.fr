@@ -1,13 +1,4 @@
-import {
-  Box,
-  Button,
-  Flex,
-  GridItem,
-  Heading,
-  Image,
-  Text,
-  VStack,
-} from '@chakra-ui/react';
+import { Box, Button, Flex, GridItem, Heading, Image, Text, VStack } from '@chakra-ui/react';
 import { FaLink } from 'react-icons/fa';
 import type ProjectType from '../../models/Project';
 import getDirectusImagePath from '../../utils/getDirectusImagePath';
@@ -21,10 +12,7 @@ export default function Project({
   reversed?: boolean;
 }) {
   return (
-    <Box
-      display={['flex', null, 'grid']}
-      gridTemplateColumns={['1fr', null, 'repeat(12, 1fr)']}
-    >
+    <Box display={['flex', null, 'grid']} gridTemplateColumns={['1fr', null, 'repeat(12, 1fr)']}>
       <GridItem
         gridRow={1}
         gridColumn={reversed ? '6 / -1' : '1 / 8'}
@@ -34,11 +22,7 @@ export default function Project({
         bg={['blackAlpha.800', null, 'transparent']}
         rounded="xl"
         p={[8, null, 0]}
-        backgroundImage={[
-          `url(${getDirectusImagePath(project.image.id)})`,
-          null,
-          'none',
-        ]}
+        backgroundImage={[`url(${getDirectusImagePath(project.image.id)})`, null, 'none']}
         backgroundColor={['blackAlpha.800', null, 'transparent']}
         backgroundSize="cover"
         backgroundBlendMode="overlay"
@@ -48,12 +32,7 @@ export default function Project({
           <Heading as="h3" fontSize="2xl" color="inherit">
             {project.name}
           </Heading>
-          <Box
-            p={[0, null, 6]}
-            rounded="lg"
-            shadow="xl"
-            bg={['transparent', null, 'gray.700']}
-          >
+          <Box p={[0, null, 6]} rounded="lg" shadow="xl" bg={['transparent', null, 'gray.700']}>
             {project.description}
           </Box>
           <Flex flexWrap="wrap" gap={2}>
