@@ -14,6 +14,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const articles = await directus.items('article').readByQuery({
     fields: ['id'],
+    filter: {
+      status: {
+        _eq: 'published',
+      },
+    },
+    limit: -1,
   });
 
   try {

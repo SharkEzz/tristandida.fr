@@ -14,8 +14,8 @@ const theme = extendTheme({
     useSystemColorMode: false,
   },
   fonts: {
-    body: 'Lato, sans-serif',
-    heading: 'Lato, sans-serif',
+    body: `'Lato', sans-serif`,
+    heading: `'Lato', sans-serif`,
   },
   styles: {
     global: {

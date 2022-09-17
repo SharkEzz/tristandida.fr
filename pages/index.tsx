@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import Header from '../components/Header';
 import PageLayout from '../components/PageLayout';
 import AboutMe from '../components/Sections/AboutMe';
@@ -22,10 +22,7 @@ export default function Home({
 }) {
   return (
     <PageLayout>
-      <Head>
-        <title>Tristan DIDA | Portfolio</title>
-        <meta name="description" content="Tristan DIDA's portfolio" />
-      </Head>
+      <NextSeo title="Tristan DIDA | Portfolio" description="Tristan DIDA's portfolio" />
       <Header header={header} />
       <Box as="main">
         <AboutMe aboutMe={aboutMe} />

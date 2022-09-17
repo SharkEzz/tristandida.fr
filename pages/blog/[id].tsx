@@ -1,6 +1,6 @@
+import { NextSeo } from 'next-seo';
 import { Container } from '@chakra-ui/react';
 import { GetStaticProps } from 'next';
-import Head from 'next/head';
 import ReactMarkdown from 'react-markdown';
 import ArticleWrapper from '../../components/Blog/ArticleWrapper';
 import Hero from '../../components/Hero';
@@ -11,10 +11,7 @@ import getDirectus from '../../utils/getDirectus';
 export default function BlogArticle({ article }: { article: Article }) {
   return (
     <PageLayout>
-      <Head>
-        <title>{`Tristan DIDA | Blog - ${article.title}`}</title>
-        <meta name="description" content={article.description} />
-      </Head>
+      <NextSeo title={`Tristan DIDA | Blog - ${article.title}`} description={article.description} />
       <Hero title={article.title} subtitle={article.description} />
       <Container maxW="container.md" py={8}>
         <ArticleWrapper>
@@ -35,6 +32,7 @@ export async function getStaticPaths() {
         _eq: 'published',
       },
     },
+    limit: -1,
   });
 
   return {

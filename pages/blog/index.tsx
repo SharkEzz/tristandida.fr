@@ -1,5 +1,5 @@
 import { Box, Container, Text, VStack } from '@chakra-ui/react';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import BlogItem from '../../components/BlogItem';
 import Hero from '../../components/Hero';
 import PageLayout from '../../components/PageLayout';
@@ -9,10 +9,7 @@ import getDirectus from '../../utils/getDirectus';
 export default function Blog({ articles }: { articles: DirectusCollections['article'][] }) {
   return (
     <PageLayout>
-      <Head>
-        <title>Tristan DIDA | Blog</title>
-        <meta name="description" content="Tristan DIDA's blog" />
-      </Head>
+      <NextSeo title="Tristan DIDA | Blog" description="Tristan DIDA's blog" />
       <Hero
         title="Blog"
         subtitle="Discover articles on various topics, ongoing projects, technology discoveries, and more!"
