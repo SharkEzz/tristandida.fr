@@ -6,7 +6,6 @@ const ArticleWrapper = chakra('article', {
       color: 'teal.300',
     },
     code: {
-      bg: 'gray.200',
       fontSize: 16,
     },
     h2: {
@@ -41,6 +40,12 @@ const ArticleWrapper = chakra('article', {
       fontSize: '18px',
       my: 2,
       textAlign: 'justify',
+    },
+    pre: {
+      bg: '#171421',
+      color: 'white',
+      overflow: 'auto',
+      p: 6,
     },
     ul: {
       my: 2,

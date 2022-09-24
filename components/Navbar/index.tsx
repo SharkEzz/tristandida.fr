@@ -1,4 +1,4 @@
-import { Button, Flex, Icon, Text, useMediaQuery } from '@chakra-ui/react';
+import { Button, Flex, Icon, Text, useBreakpointValue, useMediaQuery } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { FaEnvelope, FaGithub, FaLinkedin, FaToggleOn } from 'react-icons/fa';
 import Link from '../Link';
@@ -19,6 +19,7 @@ export default function Navbar() {
 
   useEffect(() => {
     window.addEventListener('scroll', onScroll);
+    onScroll();
 
     return () => {
       window.removeEventListener('scroll', onScroll);
@@ -30,6 +31,11 @@ export default function Navbar() {
       setIsVisible(false);
     }
   }, [isMobile]);
+
+  const display = useBreakpointValue({
+    base: isVisible ? 'flex' : 'none',
+    md: 'flex',
+  });
 
   return (
     <Flex
@@ -75,7 +81,7 @@ export default function Navbar() {
         flexWrap="wrap"
         width={['100%', null, 'fit-content']}
         flexDirection={['column', null, 'row']}
-        display={[isVisible ? 'flex' : 'none', null, 'flex']}
+        display={display}
       >
         <Link href="/" variant="hover">
           Home
