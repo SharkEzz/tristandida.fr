@@ -1,22 +1,26 @@
 import { NextSeo } from 'next-seo';
 import { Container } from '@chakra-ui/react';
 import { GetStaticProps } from 'next';
-import ReactMarkdown from 'react-markdown';
+import { marked } from 'marked';
 import ArticleWrapper from '../../components/Blog/ArticleWrapper';
 import Hero from '../../components/Hero';
 import PageLayout from '../../components/PageLayout';
 import Article from '../../models/Article';
 import getDirectus from '../../utils/getDirectus';
 
-export default function BlogArticle({ article }: { article: Article }) {
+export default function BlogArticle({
+  article,
+  contentHtml,
+}: {
+  article: Article;
+  contentHtml: string;
+}) {
   return (
     <PageLayout>
       <NextSeo title={`Tristan DIDA | Blog - ${article.title}`} description={article.description} />
       <Hero title={article.title} subtitle={article.description} />
       <Container maxW="container.md" py={8}>
-        <ArticleWrapper>
-          <ReactMarkdown>{article.content}</ReactMarkdown>
-        </ArticleWrapper>
+        <ArticleWrapper dangerouslySetInnerHTML={{ __html: contentHtml }} />
       </Container>
     </PageLayout>
   );
@@ -73,6 +77,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   return {
     props: {
       article,
+      contentHtml: marked(article.content),
     },
     revalidate: 86400, // each day
   };
