@@ -41,6 +41,10 @@ const ArticleWrapper = chakra('article', {
       my: 2,
       textAlign: 'justify',
     },
+    'p > code': {
+      bg: 'gray.200',
+      px: 1,
+    },
     pre: {
       bg: '#171421',
       color: 'white',

@@ -2,6 +2,7 @@ import { NextSeo } from 'next-seo';
 import { Container } from '@chakra-ui/react';
 import { GetStaticProps } from 'next';
 import { marked } from 'marked';
+import hljs from 'highlight.js';
 import ArticleWrapper from '../../components/Blog/ArticleWrapper';
 import Hero from '../../components/Hero';
 import PageLayout from '../../components/PageLayout';
@@ -77,7 +78,17 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   return {
     props: {
       article,
-      contentHtml: marked(article.content),
+      contentHtml: marked(article.content, {
+        highlight: (code, lang) => {
+          if (!lang || lang === '') {
+            return code;
+          }
+          const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+          return hljs.highlight(code, {
+            language,
+          }).value;
+        },
+      }),
     },
     revalidate: 86400, // each day
   };
