@@ -75,6 +75,14 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     };
   }
 
+  const renderer = {
+    image(href: string, title: string, text: string) {
+      return `<img src="${href}?key=article-image" title="${title ?? ''}"  alt="${text ?? ''}" />`;
+    },
+  };
+
+  marked.use({ renderer });
+
   return {
     props: {
       article,
