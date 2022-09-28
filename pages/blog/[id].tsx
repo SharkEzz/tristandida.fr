@@ -18,7 +18,20 @@ export default function BlogArticle({
 }) {
   return (
     <PageLayout>
-      <NextSeo title={`Tristan DIDA | Blog - ${article.title}`} description={article.description} />
+      <NextSeo
+        title={`Tristan DIDA | Blog - ${article.title}`}
+        description={article.description}
+        openGraph={{
+          article: {
+            modifiedTime: article.date_updated,
+            publishedTime: article.date_created,
+          },
+          description: article.description,
+          title: article.title,
+          type: 'article',
+          url: `https://tristandida.fr/blog/${article.id}`,
+        }}
+      />
       <Hero title={article.title} subtitle={article.description} />
       <Container maxW="container.md" py={8}>
         <ArticleWrapper dangerouslySetInnerHTML={{ __html: contentHtml }} />
