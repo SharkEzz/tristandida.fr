@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 const config = {
-  siteUrl: process.env.SITE_URL || "https://tristandida.fr",
+  siteUrl: process.env.SITE_URL ?? "https://tristandida.fr",
   generateRobotsTxt: true,
 };
 

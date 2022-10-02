@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import type { NextApiRequest, NextApiResponse } from 'next';
 import getDirectus from '../../utils/getDirectus';
 
@@ -7,7 +8,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   if (req.query.secret !== process.env.REVALIDATE_TOKEN) {
-    return res.status(401).json({ message: 'invalid token' });
+    return res.status(401).json({ message: 'Invalid token' });
   }
 
   const directus = getDirectus();
@@ -35,6 +36,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     return res.json({ ok: true });
   } catch (err) {
+    console.error(err);
     return res.status(500).json({ message: 'Error revalidating' });
   }
 }

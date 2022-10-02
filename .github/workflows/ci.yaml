@@ -46,5 +46,5 @@ jobs:
           --install
           --wait
           --namespace tristandida-website tristandida-website helm
-          --set image.tag=${{ github.sha }}
-          --set revalidateToken=${{ secrets.REVALIDATE_TOKEN }}
+          --set-string image.tag=${{ github.sha }}
+          --set-string revalidateToken=${{ secrets.REVALIDATE_TOKEN }}

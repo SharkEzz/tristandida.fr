@@ -22,6 +22,7 @@ const theme = extendTheme({
       body: {
         background: '#f6f9fc',
         color: '#425466',
+        scrollBehavior: 'smooth',
       },
       html: {
         scrollBehavior: 'smooth',

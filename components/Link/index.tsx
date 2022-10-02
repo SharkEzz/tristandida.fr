@@ -8,17 +8,13 @@ export default function Link({
   variant,
 }: {
   href: string;
-  outside?: boolean;
   children: React.ReactNode;
+  outside?: boolean;
   variant?: string;
 }) {
   return (
     <NextLink passHref href={href}>
-      <ChakraLink
-        target={outside ? '_blank' : '_self'}
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        variant={variant}
-      >
+      <ChakraLink target={outside ? '_blank' : undefined} variant={variant}>
         {children}
       </ChakraLink>
     </NextLink>
