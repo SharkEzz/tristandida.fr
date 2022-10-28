@@ -13,11 +13,9 @@ export default function Link({
   variant?: string;
 }) {
   return (
-    <NextLink passHref href={href}>
-      <ChakraLink target={outside ? '_blank' : undefined} variant={variant}>
-        {children}
-      </ChakraLink>
-    </NextLink>
+    <ChakraLink as={NextLink} href={href} target={outside ? '_blank' : undefined} variant={variant}>
+      {children}
+    </ChakraLink>
   );
 }
 
