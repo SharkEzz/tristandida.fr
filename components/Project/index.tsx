@@ -1,4 +1,14 @@
-import { Box, Button, Flex, GridItem, Heading, Image, Text, VStack } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Flex,
+  GridItem,
+  Heading,
+  Image,
+  Text,
+  useColorModeValue,
+  VStack,
+} from '@chakra-ui/react';
 import { FaLink } from 'react-icons/fa';
 import type ProjectType from '../../models/Project';
 import getDirectusImagePath from '../../utils/getDirectusImagePath';
@@ -11,14 +21,27 @@ export default function Project({
   project: ProjectType;
   reversed?: boolean;
 }) {
+  const bg = useColorModeValue(
+    reversed ? 'reversedGradient' : 'gradient',
+    reversed ? 'reversedDarkGradient' : 'darkGradient',
+  );
+  const shadow = useColorModeValue('lg', 'dark-lg');
+
   return (
-    <Box display={['flex', null, 'grid']} gridTemplateColumns={['1fr', null, 'repeat(12, 1fr)']}>
+    <Box
+      shadow={shadow}
+      display={['flex', null, 'grid']}
+      minH="500px"
+      alignItems="center"
+      px={12}
+      borderRadius="xl"
+      gridTemplateColumns={['1fr', null, 'repeat(12, 1fr)']}
+      bg={bg}
+    >
       <GridItem
         gridRow={1}
         gridColumn={reversed ? '6 / -1' : '1 / 8'}
         zIndex={1}
-        display="flex"
-        alignItems="center"
         bg={['blackAlpha.800', null, 'transparent']}
         rounded="xl"
         p={[8, null, 0]}
@@ -29,10 +52,16 @@ export default function Project({
       >
         <VStack spacing={4} align={reversed ? 'flex-end' : 'flex-start'}>
           <Text variant="accent">{project.year}</Text>
-          <Heading as="h3" fontSize="2xl" color="inherit">
+          <Heading as="h3" fontSize="2xl" color={['white', null, null, 'inherit']}>
             {project.name}
           </Heading>
-          <Box p={[0, null, 6]} rounded="lg" shadow="xl" bg={['transparent', null, 'gray.700']}>
+          <Box
+            p={[0, null, 6]}
+            rounded="lg"
+            shadow="xl"
+            bg={['transparent', null, 'gray.700']}
+            color="white"
+          >
             {project.description}
           </Box>
           <Flex flexWrap="wrap" gap={2}>
@@ -72,6 +101,7 @@ export default function Project({
           width="100%"
           loading="lazy"
           shadow="md"
+          maxH="400px"
         />
       </GridItem>
     </Box>

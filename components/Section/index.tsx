@@ -1,45 +1,46 @@
-import { chakra, Container, Heading } from '@chakra-ui/react';
-import { isValidMotionProp, motion } from 'framer-motion';
+import { Box, chakra, Container, Divider, Heading, useColorModeValue } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 
-const MotionBox = chakra(motion.section, {
-  shouldForwardProp: (prop) => isValidMotionProp(prop) || prop === 'children' || prop === 'id',
-});
+const MotionBox = chakra(motion.section);
 
 export default function Section({
   id,
   title,
-  dark,
   children,
 }: {
   id?: string;
-  dark?: boolean;
   title?: string;
   children: React.ReactNode;
 }) {
+  const bg = useColorModeValue('white', undefined);
+  const color = useColorModeValue('inherit', 'white');
+
   return (
     <MotionBox
-      py={28}
-      id={id}
-      bg={dark ? 'blue.900' : 'transparent'}
+      pb={16}
+      bg={bg}
+      color={color}
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition="0.2s"
-      viewport={{ amount: 0.1, once: true }}
+      viewport={{ amount: 0.09, once: true }}
+      position={id ? 'relative' : undefined}
     >
+      <Container maxW="container.xl" pb={16}>
+        <Divider w="full" mx="auto" borderColor="blackAlpha.300" />
+      </Container>
+      {id && <Box id={id} position="absolute" top="-81px" />}
       {title && (
-        <Heading as="h2" textAlign="center" mb={10} color={dark ? 'white' : 'inherit'}>
+        <Heading as="h2" textAlign="center" color={color} mb={10}>
           {title}
         </Heading>
       )}
-      <Container maxW="container.xl" color={dark ? 'white' : 'inherit'}>
-        {children}
-      </Container>
+      <Container maxW="container.xl">{children}</Container>
     </MotionBox>
   );
 }
 
 Section.defaultProps = {
-  dark: false,
   id: undefined,
   title: undefined,
 };

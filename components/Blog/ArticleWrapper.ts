@@ -3,7 +3,7 @@ import { chakra } from '@chakra-ui/react';
 const ArticleWrapper = chakra('article', {
   baseStyle: {
     a: {
-      color: 'teal.300',
+      color: 'blue.400',
     },
     code: {
       fontSize: 16,

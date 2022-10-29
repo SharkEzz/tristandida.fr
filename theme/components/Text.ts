@@ -6,7 +6,7 @@ const Text: ComponentStyleConfig = {
   sizes: {},
   variants: {
     accent: {
-      color: 'teal.200',
+      color: 'blue.400',
     },
     muted: {
       color: 'blackAlpha.700',

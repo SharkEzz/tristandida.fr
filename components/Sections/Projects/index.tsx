@@ -6,7 +6,7 @@ import Section from '../../Section';
 
 export default function Projects({ projects }: { projects: ProjectType[] }) {
   return (
-    <Section title="Projects" id="projects" dark>
+    <Section title="Projects" id="projects">
       <VStack spacing={20} align="flex-start">
         {projects.map((project, index) => (
           <Project key={`experience_${project.id}`} project={project} reversed={index % 2 === 0} />

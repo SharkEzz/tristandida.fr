@@ -12,7 +12,7 @@ export default function Experience({ experience }: { experience: ExperienceType 
       flexDir={['column', null, 'row']}
       position="relative"
       _before={{
-        bg: 'teal.200',
+        bg: 'blue.400',
         content: "''",
         display: ['none', null, 'block'],
         height: 'calc(100% + 8px)',
@@ -27,7 +27,7 @@ export default function Experience({ experience }: { experience: ExperienceType 
         display={['none', null, 'block']}
         top={2}
         left="5px"
-        fill="teal.200"
+        fill="blue.400"
       />
       <Box flex={1}>
         <VStack pl={[0, null, 10]} align="flex-start" position="relative">

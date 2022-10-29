@@ -11,7 +11,7 @@ const Link: ComponentStyleConfig = {
   variants: {
     hover: {
       _after: {
-        bg: 'teal.200',
+        bg: 'blue.400',
         bottom: 0,
         content: '""',
         height: '2px',
