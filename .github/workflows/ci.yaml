@@ -18,6 +18,8 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and push Docker images
         uses: docker/build-push-action@v3
+        env:
+          NEXT_PUBLIC_APP_VERSION: ${GITHUB_SHA}
         with:
           context: .
           target: runner
