@@ -1,3 +1,4 @@
+import Footer from '../Footer';
 import Navbar from '../Navbar';
 
 export default function PageLayout({
@@ -9,6 +10,7 @@ export default function PageLayout({
     <>
       <Navbar />
       {children}
+      <Footer />
     </>
   );
 }
