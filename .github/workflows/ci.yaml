@@ -19,7 +19,7 @@ jobs:
       - name: Build and push Docker images
         uses: docker/build-push-action@v3
         env:
-          NEXT_PUBLIC_APP_VERSION: ${GITHUB_SHA}
+          NEXT_PUBLIC_APP_VERSION: ${{ github.sha }}
         with:
           context: .
           target: runner
@@ -50,4 +50,4 @@ jobs:
           --namespace tristandida-website tristandida-website helm
           --set-string image.tag=${{ github.sha }}
           --set-string revalidateToken=${{ secrets.REVALIDATE_TOKEN }}
-          --set-string version=${GITHUB_SHA}
+          --set-string version=${{ github.sha }}
