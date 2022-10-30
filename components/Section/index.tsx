@@ -17,7 +17,7 @@ export default function Section({
 
   return (
     <MotionBox
-      pb={16}
+      pt={16}
       bg={bg}
       color={color}
       initial={{ opacity: 0, scale: 0.9 }}
@@ -26,9 +26,6 @@ export default function Section({
       viewport={{ amount: 0.09, once: true }}
       position={id ? 'relative' : undefined}
     >
-      <Container maxW="container.xl" pb={16}>
-        <Divider w="full" mx="auto" borderColor="blackAlpha.300" />
-      </Container>
       {id && <Box id={id} position="absolute" top="-81px" />}
       {title && (
         <Heading as="h2" textAlign="center" color={color} mb={10}>
@@ -36,6 +33,9 @@ export default function Section({
         </Heading>
       )}
       <Container maxW="container.xl">{children}</Container>
+      <Container maxW="container.xl" pt={16}>
+        <Divider w="full" mx="auto" borderColor="blackAlpha.300" />
+      </Container>
     </MotionBox>
   );
 }

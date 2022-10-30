@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import { Container } from '@chakra-ui/react';
+import { Container, useColorModeValue } from '@chakra-ui/react';
 import { GetStaticProps } from 'next';
 import { marked } from 'marked';
 import hljs from 'highlight.js';
@@ -16,6 +16,10 @@ export default function BlogArticle({
   article: Article;
   contentHtml: string;
 }) {
+  const color = useColorModeValue('inherit', 'white');
+  const codeColor = useColorModeValue(undefined, 'gray.400');
+  const preBgColor = useColorModeValue('gray.100', 'gray.900');
+
   return (
     <PageLayout>
       <NextSeo
@@ -34,7 +38,19 @@ export default function BlogArticle({
       />
       <Hero title={article.title} subtitle={article.description} />
       <Container maxW="container.md" py={8}>
-        <ArticleWrapper dangerouslySetInnerHTML={{ __html: contentHtml }} />
+        <ArticleWrapper
+          dangerouslySetInnerHTML={{ __html: contentHtml }}
+          color={color}
+          sx={{
+            code: {
+              color: codeColor,
+            },
+            'p > code': {
+              bg: preBgColor,
+              color: codeColor,
+            },
+          }}
+        />
       </Container>
     </PageLayout>
   );

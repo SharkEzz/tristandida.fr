@@ -8,9 +8,9 @@ const Text: ComponentStyleConfig = {
     accent: {
       color: 'blue.400',
     },
-    muted: {
-      color: 'blackAlpha.700',
-    },
+    muted: (props) => ({
+      color: props.colorMode === 'light' ? 'blackAlpha.700' : 'whiteAlpha.700',
+    }),
   },
 };
 

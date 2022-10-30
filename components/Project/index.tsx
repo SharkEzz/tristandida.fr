@@ -25,7 +25,7 @@ export default function Project({
     reversed ? 'reversedGradient' : 'gradient',
     reversed ? 'reversedDarkGradient' : 'darkGradient',
   );
-  const shadow = useColorModeValue('lg', 'dark-lg');
+  const shadow = useColorModeValue('md', '2xl');
 
   return (
     <Box

@@ -55,6 +55,7 @@ const ArticleWrapper = chakra('article', {
       my: 2,
     },
   },
+  shouldForwardProp: (prop: string) => prop !== 'color',
 });
 
 export default ArticleWrapper;

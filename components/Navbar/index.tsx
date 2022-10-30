@@ -11,12 +11,12 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import { FaEnvelope, FaGithub, FaLightbulb, FaLinkedin, FaToggleOn } from 'react-icons/fa';
+import { FaEnvelope, FaGithub, FaLightbulb, FaLinkedin, FaMoon, FaToggleOn } from 'react-icons/fa';
 import Link from '../Link';
 
 export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true);
-  const { toggleColorMode } = useColorMode();
+  const { colorMode, toggleColorMode } = useColorMode();
 
   const isDesktop = useBreakpointValue({ base: false, md: true });
 
@@ -31,7 +31,7 @@ export default function Navbar() {
     lg: 'flex',
   });
 
-  const bg = useColorModeValue('whiteAlpha.700', 'blackAlpha.700');
+  const bg = useColorModeValue('whiteAlpha.700', 'blackAlpha.600');
   const color = useColorModeValue('black', 'white');
 
   return (
@@ -123,11 +123,12 @@ export default function Navbar() {
             />
           </Link>
           <IconButton
+            variant="unstyled"
             onClick={toggleColorMode}
             aria-label="Toggle theme"
             height="24px"
             width="24px"
-            icon={<FaLightbulb />}
+            icon={colorMode === 'dark' ? <FaLightbulb /> : <FaMoon />}
           />
         </Flex>
       </Container>

@@ -39,7 +39,8 @@ export default function Header({ header }: { header: HeaderType }) {
   return (
     <Box
       display="flex"
-      minH="1050px"
+      h="1100px"
+      maxH="100vh"
       alignItems="center"
       bg={bg}
       animation="backgroundGradient 20s ease infinite both"

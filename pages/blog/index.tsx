@@ -14,7 +14,7 @@ export default function Blog({ articles }: { articles: DirectusCollections['arti
         title="Blog"
         subtitle="Discover articles on various topics, ongoing projects, technology discoveries, and more!"
       />
-      <Box as="main" py={8}>
+      <Box as="main" py={16}>
         <Container maxW="container.md">
           <VStack align={['center', null, 'flex-start']} spacing={6}>
             {articles.length === 0 ? (
