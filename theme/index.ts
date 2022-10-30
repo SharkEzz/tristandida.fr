@@ -30,7 +30,7 @@ const theme = extendTheme({
     global: (props: { colorMode: 'light' | 'dark' }) => {
       return {
         body: {
-          background: props.colorMode === 'light' ? '#f6f9fc' : 'hsl(233deg 44% 8%)',
+          background: props.colorMode === 'light' ? 'white' : 'hsl(233deg 44% 8%)',
           color: '#425466',
           scrollBehavior: 'smooth',
         },

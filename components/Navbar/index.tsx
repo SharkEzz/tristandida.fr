@@ -42,7 +42,7 @@ export default function Navbar() {
       left={0}
       color={color}
       w="full"
-      py={6}
+      py={[3, null, null, 6]}
       backdropFilter="blur(10px)"
       bg={bg}
       transition="background 0.2s"

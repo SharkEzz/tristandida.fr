@@ -44,7 +44,7 @@ jobs:
       - name: Deploy
         run: helm upgrade
           --install
-          --wait
+          --atomic
           --namespace tristandida-website tristandida-website helm
           --set-string image.tag=${{ github.sha }}
           --set-string revalidateToken=${{ secrets.REVALIDATE_TOKEN }}
