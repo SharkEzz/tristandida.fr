@@ -39,6 +39,11 @@ spec:
                 secretKeyRef:
                   name: {{ include "website.fullname" . }}
                   key: revalidate-token
+            - name: NEXT_PUBLIC_APP_VERSION
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "website.fullname" . }}
+                  key: version
           ports:
             - name: http
               containerPort: 3000
