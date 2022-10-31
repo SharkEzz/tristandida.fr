@@ -5,7 +5,6 @@
 replicaCount: 1
 
 revalidateToken: ""
-version: dev
 
 image:
   repository: ghcr.io/sharkezz/tristandida-fr
