@@ -29,7 +29,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const waitingArticles: Promise<void>[] = [];
     articles.data?.forEach((article) => {
-      waitingArticles.push(res.revalidate(`/blog/${article.id}`));
+      waitingArticles.push(res.revalidate(`/blog/${article?.id}`));
     });
 
     await Promise.all(waitingArticles);

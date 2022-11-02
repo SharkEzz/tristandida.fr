@@ -71,7 +71,7 @@ export async function getStaticPaths() {
 
   return {
     fallback: 'blocking',
-    paths: posts.data?.map((post) => ({ params: { id: String(post.id) } })),
+    paths: posts.data?.map((post) => ({ params: { id: String(post?.id) } })),
   };
 }
 
@@ -86,11 +86,9 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   const directus = getDirectus();
 
-  let article: Article | null = null;
+  let article: Article | null | undefined = null;
   try {
-    article = await directus.items('article').readOne(id, {
-      fields: ['*', 'image.title', 'image.id', 'image.description'],
-    });
+    article = await directus.items('article').readOne(id);
 
     if (!article) {
       return {

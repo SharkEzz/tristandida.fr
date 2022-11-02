@@ -21,10 +21,7 @@ export default function Project({
   project: ProjectType;
   reversed?: boolean;
 }) {
-  const bg = useColorModeValue(
-    reversed ? 'reversedGradient' : 'gradient',
-    reversed ? 'reversedDarkGradient' : 'darkGradient',
-  );
+  const bg = useColorModeValue(reversed ? 'reversedGradient' : 'gradient', 'gray.900');
   const shadow = useColorModeValue('md', '2xl');
 
   return (

@@ -4,7 +4,7 @@ import type ExperienceType from '../../../models/Experience';
 import Experience from '../../Experience';
 
 export default function Experiences({ experiences }: { experiences: ExperienceType[] }) {
-  const bg = useColorModeValue('gradient', 'darkGradient');
+  const bg = useColorModeValue('gradient', undefined);
 
   return (
     <Box bg={bg}>

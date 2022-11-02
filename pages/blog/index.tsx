@@ -35,7 +35,6 @@ export async function getStaticProps() {
   const directus = getDirectus();
 
   const articles = await directus.items('article').readByQuery({
-    fields: ['*', 'image.title', 'image.id', 'image.description'],
     filter: {
       status: {
         _eq: 'published',
