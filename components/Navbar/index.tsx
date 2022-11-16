@@ -4,27 +4,17 @@ import {
   Container,
   Flex,
   Icon,
-  IconButton,
   Text,
   useBreakpointValue,
-  useColorMode,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
-import { FaEnvelope, FaGithub, FaLightbulb, FaLinkedin, FaMoon, FaToggleOn } from 'react-icons/fa';
+import { useState } from 'react';
+import { FaToggleOn } from 'react-icons/fa';
 import Link from '../Link';
+import NavbarLinks from './NavbarLinks';
 
 export default function Navbar() {
-  const [isVisible, setIsVisible] = useState(true);
-  const { colorMode, toggleColorMode } = useColorMode();
-
-  const isDesktop = useBreakpointValue({ base: false, md: true });
-
-  useEffect(() => {
-    if (!isDesktop) {
-      setIsVisible(false);
-    }
-  }, [isDesktop]);
+  const [isVisible, setIsVisible] = useState(false);
 
   const display = useBreakpointValue({
     base: isVisible ? 'flex' : 'none',
@@ -77,59 +67,7 @@ export default function Navbar() {
           flexDirection={['column', null, null, 'row']}
           display={display}
         >
-          <Link href="/" variant="hover">
-            Home
-          </Link>
-          <Link variant="hover" href="/blog">
-            Blog
-          </Link>
-          <Link href="/#whoami" variant="hover">
-            Who am I
-          </Link>
-          <Link href="/#projects" variant="hover">
-            Projects
-          </Link>
-          <Link href="/#skills" variant="hover">
-            Skills
-          </Link>
-          <Link href="/#experiences" variant="hover">
-            Experiences
-          </Link>
-          <Link href="https://github.com/SharkEzz" outside>
-            <Icon
-              aria-label="Github"
-              as={FaGithub}
-              verticalAlign="middle"
-              height="24px"
-              width="24px"
-            />
-          </Link>
-          <Link href="https://www.linkedin.com/in/tristan-dida/" outside>
-            <Icon
-              aria-label="LinkedIn"
-              as={FaLinkedin}
-              verticalAlign="middle"
-              height="24px"
-              width="24px"
-            />
-          </Link>
-          <Link href="mailto:tristan.dida@free.fr">
-            <Icon
-              aria-label="Email"
-              as={FaEnvelope}
-              verticalAlign="middle"
-              height="24px"
-              width="24px"
-            />
-          </Link>
-          <IconButton
-            variant="unstyled"
-            onClick={toggleColorMode}
-            aria-label="Toggle theme"
-            height="24px"
-            width="24px"
-            icon={colorMode === 'dark' ? <FaLightbulb /> : <FaMoon />}
-          />
+          <NavbarLinks />
         </Flex>
       </Container>
     </Box>
