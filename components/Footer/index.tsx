@@ -1,4 +1,4 @@
-import { Box, Container, HStack, Tag } from '@chakra-ui/react';
+import { Box, Container, HStack } from '@chakra-ui/react';
 
 export default function Footer() {
   return (
@@ -6,9 +6,9 @@ export default function Footer() {
       <Container maxW="container.xl">
         <HStack justify="space-between">
           <Box>© {new Date().getFullYear()} Tristan DIDA</Box>
-          <Box>
+          {/* <Box>
             Version : <Tag>{process.env.NEXT_PUBLIC_APP_VERSION}</Tag>
-          </Box>
+          </Box> */}
         </HStack>
       </Container>
     </Box>
