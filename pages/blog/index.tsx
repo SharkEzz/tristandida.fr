@@ -20,9 +20,7 @@ export default function Blog({ articles }: { articles: DirectusCollections['arti
             {articles.length === 0 ? (
               <Text alignSelf="center">No articles found for now, check back later!</Text>
             ) : (
-              articles.map((article) => (
-                <BlogItem article={article} key={`article_${article.id}`} />
-              ))
+              articles.map((article) => <BlogItem article={article} key={`article_${article.id}`} />)
             )}
           </VStack>
         </Container>

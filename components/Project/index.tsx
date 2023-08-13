@@ -1,26 +1,10 @@
-import {
-  Box,
-  Button,
-  Flex,
-  GridItem,
-  Heading,
-  Image,
-  Text,
-  useColorModeValue,
-  VStack,
-} from '@chakra-ui/react';
+import { Box, Button, Flex, GridItem, Heading, Image, Text, useColorModeValue, VStack } from '@chakra-ui/react';
 import { FaLink } from 'react-icons/fa';
 import type ProjectType from '../../models/Project';
 import getDirectusImagePath from '../../utils/getDirectusImagePath';
 import Link from '../Link';
 
-export default function Project({
-  project,
-  reversed,
-}: {
-  project: ProjectType;
-  reversed?: boolean;
-}) {
+export default function Project({ project, reversed }: { project: ProjectType; reversed?: boolean }) {
   const bg = useColorModeValue(reversed ? 'reversedGradient' : 'gradient', 'gray.900');
   const shadow = useColorModeValue('md', '2xl');
 
@@ -52,13 +36,7 @@ export default function Project({
           <Heading as="h3" fontSize="2xl" color={['white', null, null, 'inherit']}>
             {project.name}
           </Heading>
-          <Box
-            p={[0, null, 6]}
-            rounded="lg"
-            shadow="xl"
-            bg={['transparent', null, 'gray.700']}
-            color="white"
-          >
+          <Box p={[0, null, 6]} rounded="lg" shadow="xl" bg={['transparent', null, 'gray.700']} color="white">
             {project.description}
           </Box>
           <Flex flexWrap="wrap" gap={2}>
@@ -83,12 +61,7 @@ export default function Project({
           )}
         </VStack>
       </GridItem>
-      <GridItem
-        display={['none', null, 'flex']}
-        gridRow={1}
-        gridColumn={reversed ? '1 / 8' : '6 / -1'}
-        zIndex={0}
-      >
+      <GridItem display={['none', null, 'flex']} gridRow={1} gridColumn={reversed ? '1 / 8' : '6 / -1'} zIndex={0}>
         <Image
           src={getDirectusImagePath(project.image.id, 'project-small')}
           title={project.image.title}

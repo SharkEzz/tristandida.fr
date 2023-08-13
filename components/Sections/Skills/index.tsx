@@ -1,15 +1,5 @@
 import { Box, Icon, SimpleGrid, Text } from '@chakra-ui/react';
-import {
-  FaHtml5,
-  FaCss3,
-  FaJs,
-  FaPhp,
-  FaNodeJs,
-  FaDocker,
-  FaReact,
-  FaAtom,
-  FaLaravel,
-} from 'react-icons/fa';
+import { FaHtml5, FaCss3, FaJs, FaPhp, FaNodeJs, FaDocker, FaReact, FaAtom, FaLaravel } from 'react-icons/fa';
 import APIPlatformIcon from '../../../assets/icons/APIPlatformIcon';
 import GolangIcon from '../../../assets/icons/GolangIcon';
 import HelmIcon from '../../../assets/icons/HelmIcon';

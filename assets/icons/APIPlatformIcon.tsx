@@ -1,18 +1,8 @@
 export default function APIPlatformIcon() {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      height="64"
-      width="64"
-      viewBox="0 0 1200 1200"
-      style={{ margin: '0 auto' }}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" height="64" width="64" viewBox="0 0 1200 1200" style={{ margin: '0 auto' }}>
       <defs>
-        <style>
-          {
-            '.a{fill:transparent;}.b,.c{fill:#1d1e1c;}.b{opacity:0.2;}.d{fill:currentColor;}.e{fill:#fff;}'
-          }
-        </style>
+        <style>{'.a{fill:transparent;}.b,.c{fill:#1d1e1c;}.b{opacity:0.2;}.d{fill:currentColor;}.e{fill:#fff;}'}</style>
       </defs>
       <circle className="a" cx="600" cy="600" r="600" />
       <ellipse className="b" cx="428.08" cy="768.44" rx="79.63" ry="20.09" />

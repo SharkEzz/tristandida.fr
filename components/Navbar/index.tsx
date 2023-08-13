@@ -1,13 +1,4 @@
-import {
-  Box,
-  Button,
-  Container,
-  Flex,
-  Icon,
-  Text,
-  useBreakpointValue,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import { Box, Button, Container, Flex, Icon, Text, useBreakpointValue, useColorModeValue } from '@chakra-ui/react';
 import { useState } from 'react';
 import { FaToggleOn } from 'react-icons/fa';
 import Link from '../Link';
@@ -40,13 +31,7 @@ export default function Navbar() {
       borderBottom="1px solid"
       borderBottomColor="blackAlpha.300"
     >
-      <Container
-        display="flex"
-        maxW="container.xl"
-        justifyContent="space-between"
-        alignItems="center"
-        flexWrap="wrap"
-      >
+      <Container display="flex" maxW="container.xl" justifyContent="space-between" alignItems="center" flexWrap="wrap">
         <Flex w={['100%', null, null, 'fit-content']} justifyContent="space-between">
           <Link href="/">
             <Text fontSize={22}>T.D</Text>

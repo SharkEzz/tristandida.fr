@@ -18,9 +18,7 @@ export default function BlogItem({ article }: { article: Article }) {
           {formatDate(article.date_created)}
         </Text>
         <Text>
-          {article.description.length > 300
-            ? `${article.description.slice(0, 300)}...`
-            : article.description}
+          {article.description.length > 300 ? `${article.description.slice(0, 300)}...` : article.description}
         </Text>
       </VStack>
     </Box>

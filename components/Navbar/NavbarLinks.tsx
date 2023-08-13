@@ -30,22 +30,10 @@ function NavbarLinks() {
         <Icon aria-label="Github" as={FaGithub} verticalAlign="middle" height="24px" width="24px" />
       </Link>
       <Link href="https://www.linkedin.com/in/tristan-dida/" outside>
-        <Icon
-          aria-label="LinkedIn"
-          as={FaLinkedin}
-          verticalAlign="middle"
-          height="24px"
-          width="24px"
-        />
+        <Icon aria-label="LinkedIn" as={FaLinkedin} verticalAlign="middle" height="24px" width="24px" />
       </Link>
       <Link href="mailto:tristan.dida@free.fr">
-        <Icon
-          aria-label="Email"
-          as={FaEnvelope}
-          verticalAlign="middle"
-          height="24px"
-          width="24px"
-        />
+        <Icon aria-label="Email" as={FaEnvelope} verticalAlign="middle" height="24px" width="24px" />
       </Link>
       <IconButton
         variant="unstyled"

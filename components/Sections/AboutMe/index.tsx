@@ -8,12 +8,7 @@ export default function AboutMe({ aboutMe }: { aboutMe: AboutMeType }) {
     <Section id="whoami" title="Who am I?">
       <Grid templateColumns={['1fr', null, '2fr 1fr']} gap="4rem">
         <GridItem alignSelf="center">
-          <Box
-            dangerouslySetInnerHTML={{ __html: aboutMe.content }}
-            display="flex"
-            flexDirection="column"
-            gap={8}
-          />
+          <Box dangerouslySetInnerHTML={{ __html: aboutMe.content }} display="flex" flexDirection="column" gap={8} />
         </GridItem>
         <GridItem justifySelf="center">
           <Image

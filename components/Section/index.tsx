@@ -3,15 +3,7 @@ import { motion } from 'framer-motion';
 
 const MotionBox = chakra(motion.section);
 
-export default function Section({
-  id,
-  title,
-  children,
-}: {
-  id?: string;
-  title?: string;
-  children: React.ReactNode;
-}) {
+export default function Section({ id, title, children }: { id?: string; title?: string; children: React.ReactNode }) {
   const bg = useColorModeValue('white', undefined);
   const color = useColorModeValue('inherit', 'white');
 

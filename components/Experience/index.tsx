@@ -22,13 +22,7 @@ export default function Experience({ experience }: { experience: ExperienceType 
         width: '2px',
       }}
     >
-      <TimelineIcon
-        position="absolute"
-        display={['none', null, 'block']}
-        top={2}
-        left="5px"
-        fill="blue.400"
-      />
+      <TimelineIcon position="absolute" display={['none', null, 'block']} top={2} left="5px" fill="blue.400" />
       <Box flex={1}>
         <VStack pl={[0, null, 10]} align="flex-start" position="relative">
           <Heading as="h3" size="lg" color="inherit">
