@@ -9,13 +9,7 @@ import PageLayout from '../../components/PageLayout';
 import Article from '../../models/Article';
 import getDirectus from '../../utils/getDirectus';
 
-export default function BlogArticle({
-  article,
-  contentHtml,
-}: {
-  article: Article;
-  contentHtml: string;
-}) {
+export default function BlogArticle({ article, contentHtml }: { article: Article; contentHtml: string }) {
   const color = useColorModeValue('inherit', 'white');
   const codeColor = useColorModeValue(undefined, 'gray.400');
   const preBgColor = useColorModeValue('gray.100', 'gray.900');
