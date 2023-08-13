@@ -8,6 +8,7 @@ export default class Document extends NextDocument {
       <Html lang="en">
         <Head />
         <body>
+          {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access */}
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Main />
           <NextScript />

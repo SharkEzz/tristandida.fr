@@ -1,7 +1,7 @@
 import { NextSeo } from 'next-seo';
 import { Container, useColorModeValue } from '@chakra-ui/react';
 import { GetStaticProps } from 'next';
-import { marked } from 'marked';
+import { RendererObject, marked } from 'marked';
 import hljs from 'highlight.js';
 import ArticleWrapper from '../../components/Blog/ArticleWrapper';
 import Hero from '../../components/Hero';
@@ -102,8 +102,8 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     };
   }
 
-  const renderer = {
-    image(href: string, title: string, text: string) {
+  const renderer: RendererObject = {
+    image(href: string, title: string | null, text: string) {
       return `<img src="${href}?key=article-image" title="${title ?? ''}"  alt="${text ?? ''}" />`;
     },
   };
